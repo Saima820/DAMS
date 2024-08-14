@@ -1,6 +1,6 @@
-			<!-- Footer -->
+ <!-- Footer -->
 
-            <footer class="footer">
+<footer class="footer">
 
 <!-- Footer Top -->
 <div class="footer-top">

@@ -13,6 +13,7 @@ use App\Http\Controllers\AppointmentlistController;
 use App\Http\Controllers\DoctorlistController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\Frontend\AppointmentController;
 use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ReportController;
 
@@ -20,6 +21,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\DoctorController as FrontendDoctorController;
 use App\Http\Controllers\Frontend\PatientController as FrontendPatientController;
+use App\Http\Controllers\Frontend\DepartmentController as FrontendDepartmentController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -33,16 +35,48 @@ Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 //all doctors
 Route::get('/all-doctors',[FrontendDoctorController::class,'allDoctor'])->name('frontend.alldoctors');
 
-//patient registration,login and logout
+//patient registration,login
 Route::post('/registration',[FrontendPatientController::class,'registration'])->name('patient.registration');
 Route::post('/do-login',[FrontendPatientController::class,'patientLogin'])->name('patient.login');
+
+
+//Single doctor view
+Route::get('/view-profile/{doctorID}',[FrontendDoctorController::class,'viewProfile'])->name('view.docprofile');
+
+
+//Department
+Route::get('/department',[FrontendDepartmentController::class,'department'])->name('department');
+
+//Single Department
+Route::get('/specific-department',[FrontendDepartmentController::class,'specificDepartment'])->name('specific.department');
+
+//search
+Route::get('/search',[FrontendDoctorController::class,'search'])->name('search');
+
+//delete doctor from backend--- need to change
+Route::get('/delete-profile/{doctorID}',[FrontendDoctorController::class,'deleteProfile'])->name('doctor.delete');
+
+
+
+Route::group(['middleware'=>'patientAuth'],function(){
+
 Route::get('/logout',[FrontendPatientController::class,'logout'])->name('patient.logout');
 
-//Doctor view (single)
-Route::get('/view-profile/{doctorView}',[FrontendDoctorController::class,'viewProfile'])->name('view.profile');
-//delete doctor from backend
-Route::get('/delete-profile/{doctorDelete}',[FrontendDoctorController::class,'deleteProfile'])->name('doctor.delete');
+//single patient profile
+Route::get('/view-profile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
 
+Route::get('/appointment-cancel/{id}',[FrontendPatientController::class,'cancelAppointment'])->name('frontend.appointment.cancel');
+
+//Update Profile
+Route::post('/update-profile/{profileId}',[FrontendPatientController::class,'updateProfile'])->name('update.profile');
+
+//Edit profile
+
+Route::get('/edit-profile/{profileId}',[FrontendPatientController::class,'editProfile'])->name('edit.profile');
+
+Route::post('/doctor-appointment/{doctor_id}',[AppointmentController::class,'appointment'])->name('book.appointment');
+
+});
 
 
 
@@ -79,6 +113,9 @@ Route::get('/doctor/view/{doc_id}',[DoctorlistController::class,'viewDoctor'])->
 
 //Appointment List
 Route::get('/appointmentlist',[AppointmentlistController::class,'appointmentlist'])->name('appointment.list');
+
+Route::get('/appointment-accept/{id}',[AppointmentlistController::class,'accept'])->name('appointment.accept');
+
 Route::get('/appointment-form',[AppointmentlistController::class,'form'])->name('appointment.form');
 Route::post('/appointment-store',[AppointmentlistController::class,'store'])->name('appointment.store');
 

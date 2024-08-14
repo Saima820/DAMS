@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-
+use App\Models\Appointment;
 use App\Models\Patient;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
@@ -16,13 +16,14 @@ class PatientController extends Controller
     public function registration(Request $request)
     {
         //step 1 Validation
-         //pdd($request->all());
+         //dd($request->all());
          $validation=Validator::make($request->all(),[
          'patient_name'=>'required',
          'email'=>'required|email',
          'password'=>'required|min:6|confirmed',
-         'mobile_number'=>'required|min:9|max:14',
-         'patient_image'=>'required|file' //new add
+         'mobile_number'=>'required|min:9|max:14|unique:patients,mobile',
+         'patient_image'=>'required|file'
+
 
 
         ]);
@@ -56,7 +57,7 @@ class PatientController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
             'mobile'=>$request->mobile_number,
-            'image'=>$fileName//new add
+            'image'=>$fileName
 
         ]);
 
@@ -108,6 +109,64 @@ class PatientController extends Controller
 
         notify()->success('Logout success');
 
+        return redirect()->back();
+
+    }
+
+
+    public function viewProfile()
+    {
+
+        $allAppointment = Appointment::where('patient_id',auth('patientG')->user()->id)->get();
+        return view('frontend.page.single_patient_profile',compact('allAppointment'));
+
+    }
+
+
+
+    public function editProfile($profileId)
+    {
+        $editPatient=Patient::find($profileId);
+        $editsinglePatient=patient::all();
+        //dd ($editsinglePatient);
+        return view('frontend.page.edit_profile',compact('editPatient','editsinglePatient'));
+    }
+
+
+    public function updateProfile(Request $request,$profileId)
+    {
+
+        //dd($request->all());
+
+        //validation
+
+        $validation=Validator::make($request->all(),[
+            'patient_name'=>'required',
+            'address'=>'required'
+
+        ]);
+
+        //query
+
+        $updateProfile=Patient::find($profileId);
+        $updateProfile->update([
+        'patient_name'=>$request->patient_name,
+        'email'=>$request->email
+        ]);
+
+
+        return redirect()->route('view.profile');
+    }
+
+    public function cancelAppointment($id)
+    {
+
+        $appointment=Appointment::find($id);
+        $appointment->update([
+            'status'=>'cancel'
+        ]);
+
+        notify()->success('Appointment cancel successful');
         return redirect()->back();
 
     }

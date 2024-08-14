@@ -9,8 +9,10 @@ class AppointmentlistController extends Controller
 {
     public function appointmentlist()
     {
-        $allUser = appointment::paginate(3);
-        return view ('backend.appointmentlist',compact('allUser'));
+
+        $allAppointment = appointment::paginate(3);
+        //dd($allAppointment);
+        return view ('backend.appointmentlist',compact('allAppointment'));
     }
 
     public function form()
@@ -22,11 +24,34 @@ class AppointmentlistController extends Controller
     {
         //dd($request->all());
         Appointment::create([
-            'name' => $request->user_name,
-            'email' =>$request->email_address,
-            'phonenumber' =>$request->phone_number
-          ]);
+            'patient_id' => $request->user_name,
+            'doctor_id' =>$request->dotor_name,
+            'appointment_date' =>$request->appointment_date,
+            'time_slot_id' =>$request->time_slot,
+            'status' =>$request->status,
+            'payment_method' =>$request->payment_method,
+            'amount' =>$request->amount,
+            'trx_id' =>$request->trx
+        ]);
 
           return redirect()->route('appointment.list');
     }
+
+    public function accept($aId)
+    {
+       $appointment=Appointment::find($aId);
+
+    //    dd($appointment);
+
+    $appointment->update([
+        'status'=>'accept'
+    ]);
+
+    notify()->success('Your appointment accepted.');
+    return redirect()->back();
+
+
+    }
+
+
 }

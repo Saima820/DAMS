@@ -9,20 +9,19 @@
   <thead>
   <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone Number</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Status</th>
       <th scope="col">action</th>
     </tr>
   </thead>
   <tbody>
 
-    @foreach($allUser as $department)
+    @foreach($allDepartment as $department)
     <tr>
       <th scope="row">{{$department->id}}</th>
       <td>{{$department->name}}</td>
-      <td>{{$department->email}}</td>
-      <td>{{$department->phonenumber}}</td>
+      <td>{{$department->status}}</td>
+
 
       <td>
         <a class="btn btn-info" href="#">View</a>
@@ -36,7 +35,7 @@
   </tbody>
 </table>
 
-{{$allUser->links()}}
+{{$allDepartment->links()}}
 
 <a class="btn btn-primary" href="{{route('department.form')}}">Add Department</a>
 

@@ -10,7 +10,6 @@
 				   <div class="row">
 
 
-
                         @foreach ($allDoctor as $doctor)
                         <div class="col-lg-4">
 								<!-- Doctor Widget -->
@@ -73,3 +72,34 @@
 
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

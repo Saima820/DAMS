@@ -25,19 +25,25 @@
   </div>
 
 
-
-
-
-
   <div class="mb-3">
     <label for="exampleInputStatus1" class="form-label">Status</label>
-    <input name="status" type="text" class="form-control" id="exampleInputStatus1">
+       <select name="status" type="text" id="exampleInputStatus1" class="form-control">
+            <option value="1">Active</option>
+            <option value="2">Inactive</option>
+
+        </select>
   </div>
 
   <div class="mb-3">
     <label for="image" class="form-label">Upload Doctor Image</label>
     <input name="doctor_image" type="file" class="form-control" id="image">
   </div>
+
+
+
+
+
+
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

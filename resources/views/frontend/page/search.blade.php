@@ -3,13 +3,15 @@
 
 @section('content')
 
-<h2> Book Your Doctor Appointments </h2>
+
 
 <section class="section section-doctor">
 				<div class="container-fluid">
 				   <div class="row">
 
-
+   <p>
+        {{$allDoctor->count()}} this found for "{{ request()->search_key}}"
+   </p>
 
                         @foreach ($allDoctor as $doctor)
                         <div class="col-lg-4">
@@ -53,7 +55,7 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{route('view.docprofile',$doctor->id)}}" class="btn view-btn">View Profile</a>
+												<a href="{{route('view.profile',$doctor->id)}}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
 												<a href="booking.html" class="btn book-btn">Book Now</a>

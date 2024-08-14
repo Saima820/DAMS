@@ -107,6 +107,7 @@
                      @guest('patientG')
 						<li>
 
+
 							<a href="" data-toggle="modal" data-target="#loginModal"> Login </a>
 
                         </li>
@@ -121,9 +122,12 @@
                         @auth('patientG')
                         <li>
               <!-- Button trigger modal -->
-              <a type="" class="" >
-                {{ auth('patientG')->user()->patient_name }}
+               <div  class="row">
+               <a href="{{route('view.profile')}}" class="" >
+                <img style="width: 50px; border-radius:50px;" src="{{url('/uploads/patients/'.auth('patientG')->user()->image)}}" alt="">  {{ auth('patientG')->user()->patient_name }}
               </a>
+               </div>
+
             </li>
 
             <li>

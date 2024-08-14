@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phonenumber')->nullable();
+            $table->integer('doctor_id');
+            $table->integer('patient_id');
+            $table->date('appointment_date');
+            $table->integer('time_slot_id');
+            $table->string('status')->default('pending');
+            $table->string('payment_method')->default('pending');
+            $table->integer('amount');
+            $table->integer('trx_id')->nullable();
             $table->timestamps();
         });
     }

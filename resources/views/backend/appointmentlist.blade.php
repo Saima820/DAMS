@@ -9,24 +9,42 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone Number</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Doctor Name</th>
+      <th scope="col">Appointment Date</th>
+      <th scope="col">Time Slot</th>
+      <th scope="col">Status</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Amount</th>
+      <th scope="col">transaction</th>
+
+
     </tr>
   </thead>
   <tbody>
 
-  @foreach($allUser as $appointment)
+  @foreach($allAppointment as $appointment)
     <tr>
       <th scope="row">{{$appointment->id}}</th>
-      <td>{{$appointment->name}}</td>
-      <td>{{$appointment->email}}</td>
-      <td>{{$appointment->phonenumber}}</td>
+      <td>{{$appointment->patient_id}}</td>
+      <td>{{$appointment->doctor_id}}</td>
+      <td>{{$appointment->appointment_date}}</td>
+      <td>{{$appointment->time_slot_id}}</td>
+      <td>{{$appointment->status}}</td>
+      <td>{{$appointment->payment_method}}</td>
+      <td>{{$appointment->amount}}</td>
+      <td>{{$appointment->trx_id}}</td>
 
-      <td>
+
+    <td>
         <a class="btn btn-info" href="#">View</a>
-        <a class="btn btn-danger" href="#">Delete</a>
-        <a class="btn btn-warning" href="#">Edit</a>
+
+        @if($appointment->status=='pending')
+        <a class="btn btn-success" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>
+        <a class="btn btn-danger" href="#">Reject</a>
+        @endif
+
+
       </td>
     </tr>
 
@@ -35,8 +53,21 @@
   </tbody>
 </table>
 
-{{ $allUser->links() }}
+{{ $allAppointment->links() }}
 
 <a class="btn btn-primary" href="{{route('appointment.form')}}">Add Appointment</a>
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+

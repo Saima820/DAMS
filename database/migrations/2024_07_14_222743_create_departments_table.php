@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
-            $table->string('phonenumber')->nullable();
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

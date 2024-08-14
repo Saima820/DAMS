@@ -13,6 +13,9 @@
 									<div class="doc-info-cont">
 										<h4 class="doc-name">{{$singleDoctor->name}}</h4>
 										<p class="doc-speciality">{{$singleDoctor->specialist}}</p>
+                                        <p class="doc-contact">{{$singleDoctor->phonenumber}}</p>
+                                        <p class="doc-email">{{$singleDoctor->email}}</p>
+                                        <p class="doc-status">{{$singleDoctor->status}}</p>
 										<p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
@@ -54,31 +57,32 @@
 									</div>
 								</div>
 								<div class="doc-info-right">
-									<div class="clini-infos">
-										<ul>
-											<li><i class="far fa-thumbs-up"></i> 99%</li>
-											<li><i class="far fa-comment"></i> 35 Feedback</li>
-											<li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-											<li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
-										</ul>
-									</div>
-									<div class="doctor-action">
-										<a href="javascript:void(0)" class="btn btn-white fav-btn">
-											<i class="far fa-bookmark"></i>
-										</a>
-										<a href="chat.html" class="btn btn-white msg-btn">
-											<i class="far fa-comment-alt"></i>
-										</a>
-										<a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
-											<i class="fas fa-phone"></i>
-										</a>
-										<a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
-											<i class="fas fa-video"></i>
-										</a>
-									</div>
+
+                                <form action="{{route('book.appointment',$singleDoctor->id)}}" method="post">
+
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="exampleInputName1" class="form-label">Select Date</label>
+                                    <input name="appointment_date" required type="date" class="form-control" aria-describedby="nameHelp">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="exampleInputName1" class="form-label">Select Slot</label>
+                                   <select name="time_slot_id" id="" class="form-control">
+                                    <option value="1">10-11</option>
+                                    <option value="2">11-12</option>
+                                    <option value="3">12-1:00</option>
+                                   </select>
+                                </div>
+
+
+
 									<div class="clinic-booking">
-										<a class="apt-btn" href="booking.html">Book Appointment</a>
+                                    <button class="btn btn-success" style="color:black" type="submit"> Book Now</button>
 									</div>
+
+
+                                </form>
 								</div>
 							</div>
 						</div>

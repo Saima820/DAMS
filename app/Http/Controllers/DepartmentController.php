@@ -9,8 +9,8 @@ class DepartmentController extends Controller
 {
     public function department()
     {
-        $allUser = department::paginate(3);
-        return view ('backend.departmentlist',compact('allUser'));
+        $allDepartment = Department::paginate(3);
+        return view ('backend.departmentlist',compact('allDepartment'));
 
     }
 
@@ -26,9 +26,8 @@ class DepartmentController extends Controller
 
 
           Department::create([
-            'name' => $request->user_name,
-            'email' =>$request->email_address,
-            'phonenumber' =>$request->phone_number
+            'name' => $request->department_name,
+
           ]);
 
           return redirect()->route('department.list');

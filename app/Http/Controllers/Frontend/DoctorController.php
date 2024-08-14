@@ -26,5 +26,16 @@ class DoctorController extends Controller
     return redirect()->back();
 
   }
+
+
+  public function search()
+
+  {
+    //dd(request()->all());
+    $allDoctor=Doctor::where('name','LIKE','%'.request()->search_key.'%')->get();
+    //where('column name', 'condition', '%value%')
+    return view('frontend.page.search',compact('allDoctor'));
+
+  }
 }
 
