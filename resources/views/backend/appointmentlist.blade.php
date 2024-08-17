@@ -26,8 +26,8 @@
   @foreach($allAppointment as $appointment)
     <tr>
       <th scope="row">{{$appointment->id}}</th>
-      <td>{{$appointment->patient_id}}</td>
-      <td>{{$appointment->doctor_id}}</td>
+      <td>{{$appointment->patient->patient_name}}</td>
+      <td>{{$appointment->doctor->name}}</td>
       <td>{{$appointment->appointment_date}}</td>
       <td>{{$appointment->time_slot_id}}</td>
       <td>{{$appointment->status}}</td>

@@ -12,4 +12,6 @@ class Patient extends Authenticatable
     use HasFactory;
     protected $guarded = [];
     public $timestamps = false;
+
+
 }

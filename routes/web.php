@@ -44,11 +44,8 @@ Route::post('/do-login',[FrontendPatientController::class,'patientLogin'])->name
 Route::get('/view-profile/{doctorID}',[FrontendDoctorController::class,'viewProfile'])->name('view.docprofile');
 
 
-//Department
-Route::get('/department',[FrontendDepartmentController::class,'department'])->name('department');
-
 //Single Department
-Route::get('/specific-department',[FrontendDepartmentController::class,'specificDepartment'])->name('specific.department');
+Route::get('/specific-department/{id}',[FrontendDepartmentController::class,'specificDepartment'])->name('specific.department');
 
 //search
 Route::get('/search',[FrontendDoctorController::class,'search'])->name('search');
@@ -64,7 +61,7 @@ Route::get('/logout',[FrontendPatientController::class,'logout'])->name('patient
 
 //single patient profile
 Route::get('/view-profile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
-
+//cancle appointment from patient profile
 Route::get('/appointment-cancel/{id}',[FrontendPatientController::class,'cancelAppointment'])->name('frontend.appointment.cancel');
 
 //Update Profile
@@ -113,7 +110,7 @@ Route::get('/doctor/view/{doc_id}',[DoctorlistController::class,'viewDoctor'])->
 
 //Appointment List
 Route::get('/appointmentlist',[AppointmentlistController::class,'appointmentlist'])->name('appointment.list');
-
+//accept appointment from appointment list
 Route::get('/appointment-accept/{id}',[AppointmentlistController::class,'accept'])->name('appointment.accept');
 
 Route::get('/appointment-form',[AppointmentlistController::class,'form'])->name('appointment.form');

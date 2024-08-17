@@ -54,7 +54,7 @@
 										<img src="assets/img/specialities/specialities-01.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
 									</div>
-									<a href="{{route('specific.department')}}">{{$department->name}}</a>
+									<a href="{{route('specific.department',$department->id)}}">{{$department->name}}</a>
 								</div>
                                 @endforeach
 								<!-- /Slider Item -->

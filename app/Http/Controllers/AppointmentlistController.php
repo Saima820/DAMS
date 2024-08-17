@@ -10,8 +10,9 @@ class AppointmentlistController extends Controller
     public function appointmentlist()
     {
 
-        $allAppointment = appointment::paginate(3);
+        $allAppointment = Appointment::with('patient','doctor')->paginate(3);
         //dd($allAppointment);
+
         return view ('backend.appointmentlist',compact('allAppointment'));
     }
 

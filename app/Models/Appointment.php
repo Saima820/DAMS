@@ -9,4 +9,20 @@ class Appointment extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    //1.hasMany will return collection(we will use it for one to many relation)
+    //2.hasOne(optional) and belongsTo(mandatory) will return object(one to one)
+    //patient_id
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+
+
 }

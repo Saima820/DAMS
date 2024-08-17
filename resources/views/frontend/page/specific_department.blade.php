@@ -10,7 +10,7 @@
 				   <div class="row">
 
 
-                        @foreach ($allDoctor as $doctor)
+                        @foreach ($relatedDoctor as $doctor)
                         <div class="col-lg-4">
 								<!-- Doctor Widget -->
 								<div class="profile-widget">

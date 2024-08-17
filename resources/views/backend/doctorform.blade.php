@@ -20,16 +20,23 @@
 
 
   <div class="mb-3">
-    <label for="exampleInputSpecialist1" class="form-label"> Select Specialist</label>
-    <input name="specialist" type="text" class="form-control" id="exampleInputSpecialist1">
+    <label for="exampleInputDepartment1" class="form-label"> Select Department</label>
+    <select name="department_id" type="text" class="form-control" id="exampleInputDepartment1">
+
+    @foreach ($allDepartment as $department)
+    <option value="{{$department->id}}">{{$department->name}}</option>
+     @endforeach
+
+    </select>
   </div>
+
 
 
   <div class="mb-3">
     <label for="exampleInputStatus1" class="form-label">Status</label>
        <select name="status" type="text" id="exampleInputStatus1" class="form-control">
-            <option value="1">Active</option>
-            <option value="2">Inactive</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
 
         </select>
   </div>

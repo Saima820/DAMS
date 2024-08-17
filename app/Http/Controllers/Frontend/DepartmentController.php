@@ -9,12 +9,19 @@ use App\Models\Doctor;
 
 class DepartmentController extends Controller
 {
-   public function specificDepartment()
+
+
+   public function specificDepartment($id)
    {
 
-    $allDoctor=Doctor::all();
 
-    return view('frontend.page.specific_department',compact('allDoctor'));
+    $relatedDoctor=Doctor::where('department_id',$id)->get();
+    //dd($relatedDoctor);
+    return view('frontend.page.specific_department',compact('relatedDoctor'));
    }
+
+
+
+
 
 }

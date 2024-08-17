@@ -10,11 +10,9 @@ class HomeController extends Controller
 {
     public function home()
     {
+    $allDepartment=Department::all();
+    return view ('frontend.home',compact('allDepartment'));
 
-        $allDepartment=Department::all();
-        //dd($allDepartment);
-        return view ('frontend.home',compact('allDepartment'));
-        //return view ('frontend.home');
 
     }
 

@@ -45,6 +45,6 @@
 
   </tbody>
 </table>
-<a class="btn btn-primary" href="{{route('patient.form')}}">Add Patient</a>
+<!-- <a class="btn btn-primary" href="{{route('patient.form')}}">Add Patient</a> -->
 
 @endsection

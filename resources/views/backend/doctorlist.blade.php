@@ -3,6 +3,8 @@
 @section('content')
 
 <h1> Doctor List </h1>
+
+<a class="btn btn-primary" href="{{route('doctor.form')}}">Add Doctor</a>
 <table class="table">
   <thead>
     <tr>
@@ -29,7 +31,7 @@
       <td>{{$doctor->name}}</td>
       <td>{{$doctor->email}}</td>
       <td>{{$doctor->phonenumber}}</td>
-      <td>{{$doctor->specialist}}</td>
+      <td>{{$doctor->department->name}}</td>
       <td>{{$doctor->status}}</td>
 
       <td>
@@ -44,7 +46,7 @@
   </tbody>
 </table>
 
-<a class="btn btn-primary" href="{{route('doctor.form')}}">Add Doctor</a>
+
 
 
 

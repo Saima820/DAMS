@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Department;
 use App\Models\Doctor;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,24 +12,26 @@ class DoctorlistController extends Controller
 {
     public function doctorlist()
     {
-        $allDoctor = doctor::all();
+        $allDoctor = Doctor::with('department')->get();
+        //dd($allDoctor);
         return view ('backend.doctorlist',compact('allDoctor'));
     }
 
     public function form()
     {
-        return view ('backend.doctorform');
+        $allDepartment=Department::all();
+        return view ('backend.doctorform',compact('allDepartment'));
     }
 
     public function store(Request $request)
     {
 
-
+      //dd($request->all());
        $validation=Validator::make($request->all(),[
           'user_name'=>'required', //form er input name
           'email_address'=>'required',
           'phone_number'=>'required',
-          'specialist'=>'required',
+          'department_id'=>'required',
           'status'=>'required',
           'doctor_image'=>'required|file'
        ]);
@@ -64,7 +68,7 @@ class DoctorlistController extends Controller
             'name' => $request->user_name,
             'email' =>$request->email_address,
             'phonenumber' =>$request->phone_number,
-            'specialist' =>$request->specialist,
+            'department_id' =>$request->department_id,
             'status' =>$request->status,
             'image' =>$fileName
           ]);
