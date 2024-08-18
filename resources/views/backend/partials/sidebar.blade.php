@@ -3,27 +3,28 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-          <ul class="nav flex-column">
+
+
+
+        <ul class="nav flex-column">
+
+<!-- common -->
+
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Dashboard
               </a>
             </li>
+
+
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('patient.list')}}">
                 <svg class="bi"><use xlink:href="#file-earmark"/></svg>
                 Patient List
               </a>
-
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{{route('doctor.list')}}">
-                <svg class="bi"><use xlink:href="#people"/></svg>
-                Doctor List
-              </a>
             </li>
 
-            </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('appointment.list')}}">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
@@ -31,7 +32,18 @@
               </a>
             </li>
 
+
+
+            <!-- admin access -->
+
+            @if(auth()->user()->role=='admin')
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{route('doctor.list')}}">
+                <svg class="bi"><use xlink:href="#people"/></svg>
+                Doctor List
+              </a>
             </li>
+
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('payment.gateway')}}">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
@@ -39,23 +51,12 @@
               </a>
             </li>
 
-            </li>
+
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('department.list')}}">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
                 Department
               </a>
-            </li>
-
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{{route('prescription.list')}}">
-                <svg class="bi"><use xlink:href="#cart"/></svg>
-                Prescription
-              </a>
-            </li>
-
-
             </li>
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('prescription.list')}}">
@@ -64,13 +65,31 @@
               </a>
             </li>
 
-
-             <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{url('/report')}}">
                 <svg class="bi"><use xlink:href="#puzzle"/></svg>
                 Report
               </a>
             </li>
+@endif
+
+
+
+
+
+<!-- doctor access -->
+
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{route('prescription.list')}}">
+                <svg class="bi"><use xlink:href="#cart"/></svg>
+                Prescription
+              </a>
+            </li>
+
+
+
+
+
           </ul>
 
 

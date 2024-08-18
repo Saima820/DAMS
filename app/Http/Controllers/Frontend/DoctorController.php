@@ -4,25 +4,25 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Doctor;
+use App\Models\User;
 
 class DoctorController extends Controller
 {
   public function allDoctor()
   {
-    $allDoctor=Doctor::all();
+    $allDoctor=User::all();
     return view ('frontend.alldoctors',compact('allDoctor'));
   }
 
   public function viewProfile($id)
   {
-    $singleDoctor=Doctor::find($id);
+    $singleDoctor=User::find($id);
     return view ('frontend.page.single_doctor',compact('singleDoctor'));
   }
 
   public function deleteProfile($id)
   {
-    $deleteDoctor=Doctor::find($id)->delete();
+    $deleteDoctor=User::find($id)->delete();
     return redirect()->back();
 
   }
@@ -32,7 +32,7 @@ class DoctorController extends Controller
 
   {
     //dd(request()->all());
-    $allDoctor=Doctor::where('name','LIKE','%'.request()->search_key.'%')->get();
+    $allDoctor=User::where('name','LIKE','%'.request()->search_key.'%')->get();
     //where('column name', 'condition', '%value%')
     return view('frontend.page.search',compact('allDoctor'));
 

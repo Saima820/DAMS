@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
-use App\Models\Doctor;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class DoctorlistController extends Controller
 {
     public function doctorlist()
     {
-        $allDoctor = Doctor::with('department')->get();
+        $allDoctor = User::with('department')->where('role','doctor')->get();
         //dd($allDoctor);
         return view ('backend.doctorlist',compact('allDoctor'));
     }
@@ -29,8 +29,9 @@ class DoctorlistController extends Controller
       //dd($request->all());
        $validation=Validator::make($request->all(),[
           'user_name'=>'required', //form er input name
-          'email_address'=>'required',
+          'email_address'=>'required|unique:users,email',
           'phone_number'=>'required',
+          'password'=>'required',
           'department_id'=>'required',
           'status'=>'required',
           'doctor_image'=>'required|file'
@@ -64,10 +65,12 @@ class DoctorlistController extends Controller
 
            //step 7
 
-          Doctor::create([
+          User::create([
             'name' => $request->user_name,
+            'role' => 'doctor',
             'email' =>$request->email_address,
             'phonenumber' =>$request->phone_number,
+            'password' =>$request->password,
             'department_id' =>$request->department_id,
             'status' =>$request->status,
             'image' =>$fileName
@@ -79,7 +82,7 @@ class DoctorlistController extends Controller
 
     public function viewDoctor($id)
     {
-        $viewDoctor=Doctor::find($id);
+        $viewDoctor=User::find($id);
         return view ('backend.page.singleviewdoctor',compact('viewDoctor'));
     }
 

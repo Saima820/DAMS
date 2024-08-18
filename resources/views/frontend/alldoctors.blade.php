@@ -12,6 +12,7 @@
 
 
                         @foreach ($allDoctor as $doctor)
+                        @if($doctor->role=='doctor')
                         <div class="col-lg-4">
 								<!-- Doctor Widget -->
 								<div class="profile-widget">
@@ -62,6 +63,7 @@
 									</div>
 								</div>
                                 </div>
+                                @endif
                                 @endforeach
 
 

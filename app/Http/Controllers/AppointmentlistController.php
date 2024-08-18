@@ -42,7 +42,7 @@ class AppointmentlistController extends Controller
     {
        $appointment=Appointment::find($aId);
 
-    //    dd($appointment);
+        //dd($appointment);
 
     $appointment->update([
         'status'=>'accept'
