@@ -54,5 +54,18 @@ class AppointmentlistController extends Controller
 
     }
 
+    public function report()
+    {
+        if(request()->has('from_date') && request()->has('to_date'))
+        {
+            $apReport = Appointment::whereBetween('appointment_date', [request()->from_date,request()->to_date])->get();
+            return view('backend.report',compact('apReport'));
+        }
+
+
+        $apReport=Appointment::all();
+        return view ('backend.report',compact('apReport'));
+    }
+
 
 }

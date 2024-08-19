@@ -15,7 +15,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Frontend\AppointmentController;
 use App\Http\Controllers\PrescriptionController;
-use App\Http\Controllers\ReportController;
+
 
 
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
@@ -132,7 +132,7 @@ Route::get('/prescription-form',[PrescriptionController::class,'form'])->name('p
 Route::post('/prescription-store',[PrescriptionController::class,'store'])->name('prescription.store');
 
 //Report
-Route::get('/report',[ReportController::class,'report']);
+Route::get('/report',[AppointmentlistController::class,'report'])->name('appointment.report');
 
 Route::get('/logout',[AuthenticationController::class,'logout'])->name('logout');
 

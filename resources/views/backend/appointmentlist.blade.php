@@ -4,37 +4,6 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-        <div class="form-group">
-
-
-        <div class="mb-3">
-
-            <label for="exampleInputName1" class="form-label">From</label>
-            <input name="appointment_date" required type="date" class="form-control" aria-describedby="nameHelp">
-
-         </div>
-
-
-         <div class="mb-3">
-
-                <label for="exampleInputName1" class="form-label">To</label>
-                <input name="appointment_date" required type="date" class="form-control" aria-describedby="nameHelp">
-
-        </div>
-
-<!-- Requires Bootstrap, Datepicker, Fontawesome and Jquery -->
-
-        </div>
-    </div>
-</div>
-</div>
-
-
-
-
 
 <h1> Appointment List </h1>
 <table class="table">
@@ -49,6 +18,7 @@
       <th scope="col">Payment</th>
       <th scope="col">Amount</th>
       <th scope="col">transaction</th>
+      
 
 
     </tr>

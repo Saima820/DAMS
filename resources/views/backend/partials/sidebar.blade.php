@@ -66,7 +66,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{{url('/report')}}">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{route('appointment.report')}}">
                 <svg class="bi"><use xlink:href="#puzzle"/></svg>
                 Report
               </a>
