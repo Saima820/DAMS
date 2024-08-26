@@ -12,82 +12,21 @@
 									</div>
 									<div class="doc-info-cont">
 										<h4 class="doc-name">{{$viewDoctor->name}}</h4>
-										<p class="doc-speciality">{{$viewDoctor->specialist}}</p>
-										<p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</p>
-										<div class="rating">
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star"></i>
-											<span class="d-inline-block average-rating">(35)</span>
-										</div>
-										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
-											<ul class="clinic-gallery">
-												<li>
-													<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-01.jpg" alt="Feature">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-02.jpg" alt="Feature Image">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-03.jpg" alt="Feature">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-04.jpg" alt="Feature">
-													</a>
-												</li>
-											</ul>
-										</div>
-										<div class="clinic-services">
-											<span>Dental Fillings</span>
-											<span>Teeth Whitneing</span>
-										</div>
+										<p class="doc-speciality">Specialist:{{$viewDoctor->department->name}}</p>
+                                        <p class="doc-speciality">Phone Number:{{$viewDoctor->phonenumber}}</p>
+                                        <p class="doc-speciality">Email:{{$viewDoctor->email}}</p>
+                                        <p class="doc-speciality">Status:{{$viewDoctor->status}}</p>
+                                        <p class="doc-speciality">Visiting Charge:{{$viewDoctor->visiting_charge}}</p>
+
+									
+
+
 									</div>
 								</div>
-								<div class="doc-info-right">
-									<div class="clini-infos">
-										<ul>
-											<li><i class="far fa-thumbs-up"></i> 99%</li>
-											<li><i class="far fa-comment"></i> 35 Feedback</li>
-											<li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-											<li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
-										</ul>
-									</div>
-									<div class="doctor-action">
-										<a href="javascript:void(0)" class="btn btn-white fav-btn">
-											<i class="far fa-bookmark"></i>
-										</a>
-										<a href="chat.html" class="btn btn-white msg-btn">
-											<i class="far fa-comment-alt"></i>
-										</a>
-										<a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
-											<i class="fas fa-phone"></i>
-										</a>
-										<a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#video_call">
-											<i class="fas fa-video"></i>
-										</a>
-									</div>
-									<div class="clinic-booking">
-										<a class="apt-btn" href="booking.html">Book Appointment</a>
-									</div>
-								</div>
+
 							</div>
 						</div>
 
-
-
-
-
-
-							</div>
+                </div>
 
 @endsection

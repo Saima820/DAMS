@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
-use App\Models\patient;
+use App\Models\Patient;
 
 class PatientlistController extends Controller
 {
@@ -66,6 +66,13 @@ class PatientlistController extends Controller
 
           return redirect()->route('patient.list');
 
+    }
+
+
+    public function viewPatient($id)
+    {
+        $viewPatient=Patient::find($id);
+        return view('backend.page.single-patient-view',compact('viewPatient'));
     }
 
 

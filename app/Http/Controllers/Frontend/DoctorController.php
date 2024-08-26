@@ -20,12 +20,7 @@ class DoctorController extends Controller
     return view ('frontend.page.single_doctor',compact('singleDoctor'));
   }
 
-  public function deleteProfile($id)
-  {
-    $deleteDoctor=User::find($id)->delete();
-    return redirect()->back();
 
-  }
 
 
   public function search()

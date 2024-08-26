@@ -16,9 +16,10 @@
       <th scope="col">Time Slot</th>
       <th scope="col">Status</th>
       <th scope="col">Payment</th>
-      <th scope="col">Amount</th>
+      <th scope="col">Payment Status</th>
+      <th scope="col">Visiting Charge</th>
       <th scope="col">transaction</th>
-      
+
 
 
     </tr>
@@ -26,6 +27,7 @@
   <tbody>
 
   @foreach($allAppointment as $appointment)
+
     <tr>
       <th scope="row">{{$appointment->id}}</th>
       <td>{{$appointment->patient->patient_name}}</td>
@@ -34,7 +36,8 @@
       <td>{{$appointment->time_slot_id}}</td>
       <td>{{$appointment->status}}</td>
       <td>{{$appointment->payment_method}}</td>
-      <td>{{$appointment->amount}}</td>
+      <td>{{$appointment->payment_status}}</td>
+      <td>{{$appointment->doctor->visiting_charge}}</td>
       <td>{{$appointment->trx_id}}</td>
 
 

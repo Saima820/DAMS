@@ -92,7 +92,7 @@
 											</li>
 
                                             <li>
-												<a href="">
+												<a href="{{route('edit.profile')}}">
 													<i class="fas fa-user-cog"></i>
 													<span>Edit Profile</span>
 												</a>
@@ -162,7 +162,7 @@
 																	<th>Doctor</th>
 																	<th>Appt Date</th>
                                                                     <th>time slot</th>
-																	<th>Amount</th>
+																	<th>visiting Charge</th>
                                                                     <th>Payment Method</th>
 
 																	<th>Status</th>
@@ -171,18 +171,19 @@
 															</thead>
 															<tbody>
                                                                 @foreach($allAppointment as $appointment)
+
 																<tr>
 																	<td>
 																		<h2 class="table-avatar">
 																			<a href="doctor-profile.html" class="avatar avatar-sm mr-2">
-																				<img class="avatar-img rounded-circle" src="{{url('/uploads/patients/'.auth('patientG')->user()->image)}}" alt="User Image">
+																				<img class="avatar-img rounded-circle" src="{{url('/uploads/doctors/'.$appointment->doctor->image)}}" alt="User Image">
 																			</a>
-																			<a href="doctor-profile.html">{{$appointment->doctor_id}} <span>Dental</span></a>
+
 																		</h2>
 																	</td>
 																	<td>{{$appointment->appointment_date}} <span class="d-block text-info"></span></td>
                                                                     <td>{{$appointment->time_slot_id}}</td>
-																	<td>{{$appointment->amount}}</td>
+																	<td>{{$appointment->visiting_charge}}</td>
                                                                     <td>{{$appointment->payment_method}}</td>
 
 																	<td> {{$appointment->status}}<span class="badge badge-pill bg-success-light"></span></td>

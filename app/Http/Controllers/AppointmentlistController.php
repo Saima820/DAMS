@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\AppointmentEmail;
 use App\Models\Appointment;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentlistController extends Controller
 {
@@ -31,16 +34,17 @@ class AppointmentlistController extends Controller
             'time_slot_id' =>$request->time_slot,
             'status' =>$request->status,
             'payment_method' =>$request->payment_method,
-            'amount' =>$request->amount,
+            'visiting_charge' =>$request->visiting_charge,
             'trx_id' =>$request->trx
         ]);
 
+        notify()->success('Appointment success.');
           return redirect()->route('appointment.list');
     }
 
     public function accept($aId)
     {
-       $appointment=Appointment::find($aId);
+       $appointment=Appointment::with('patient')->find($aId);
 
         //dd($appointment);
 
@@ -49,7 +53,13 @@ class AppointmentlistController extends Controller
     ]);
 
     notify()->success('Your appointment accepted.');
+
+    //send appointment confirmation mail
+    Mail::to($appointment->patient->email)->send(new AppointmentEmail($appointment));
+
     return redirect()->back();
+
+
 
 
     }

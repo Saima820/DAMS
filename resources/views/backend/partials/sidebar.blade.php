@@ -11,7 +11,7 @@
 <!-- common -->
 
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{route('dashboard')}}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Dashboard
               </a>
@@ -58,12 +58,12 @@
                 Department
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('prescription.list')}}">
                 <svg class="bi"><use xlink:href="#cart"/></svg>
                 Disease
               </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{{route('appointment.report')}}">

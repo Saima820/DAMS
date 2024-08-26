@@ -124,12 +124,12 @@ class PatientController extends Controller
 
 
 
-    public function editProfile($profileId)
+    public function editProfile()
     {
-        $editPatient=Patient::find($profileId);
-        $editsinglePatient=patient::all();
+        $editPatient=Patient::find(auth('patientG')->user()->id);
+
         //dd ($editsinglePatient);
-        return view('frontend.page.edit_profile',compact('editPatient','editsinglePatient'));
+        return view('frontend.page.edit_profile',compact('editPatient'));
     }
 
 

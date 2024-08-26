@@ -15,6 +15,7 @@
       <th scope="col">Phone Number</th>
       <th scope="col">Specialist</th>
       <th scope="col">Status</th>
+      <th scope="col">Visiting Charge</th>
 
       <th scope="col">Action</th>
     </tr>
@@ -33,11 +34,12 @@
       <td>{{$doctor->phonenumber}}</td>
       <td>{{$doctor->department->name}}</td>
       <td>{{$doctor->status}}</td>
+      <td>{{$doctor->visiting_charge}}</td>
 
       <td>
         <a class="btn btn-info" href="{{route('doctor.view',$doctor->id)}}">View</a>
         <a class="btn btn-danger" href="{{route('doctor.delete',$doctor->id)}}">Delete</a>
-        <a class="btn btn-warning" href="#">Edit</a>
+        <a class="btn btn-warning" href="{{route('doctor.edit',$doctor->id)}}">Edit</a>
       </td>
 
     </tr>

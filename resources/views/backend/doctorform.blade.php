@@ -47,6 +47,12 @@
         </select>
   </div>
 
+
+  <div class="mb-3">
+    <label for="exampleInputCharge1" class="form-label">Visiting Charge</label>
+    <input required name="visiting_charge" type="text" class="form-control" id="exampleInputCharge1">
+  </div>
+
   <div class="mb-3">
     <label for="image" class="form-label">Upload Doctor Image</label>
     <input name="doctor_image" type="file" class="form-control" id="image">

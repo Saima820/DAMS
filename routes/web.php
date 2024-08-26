@@ -22,8 +22,7 @@ use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\DoctorController as FrontendDoctorController;
 use App\Http\Controllers\Frontend\PatientController as FrontendPatientController;
 use App\Http\Controllers\Frontend\DepartmentController as FrontendDepartmentController;
-
-
+use App\Http\Controllers\Frontend\PaymentController as FrontendPaymentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,14 +43,11 @@ Route::post('/do-login',[FrontendPatientController::class,'patientLogin'])->name
 Route::get('/view-profile/{doctorID}',[FrontendDoctorController::class,'viewProfile'])->name('view.docprofile');
 
 
-//Single Department
+//Specific Department
 Route::get('/specific-department/{id}',[FrontendDepartmentController::class,'specificDepartment'])->name('specific.department');
 
 //search
 Route::get('/search',[FrontendDoctorController::class,'search'])->name('search');
-
-//delete doctor from backend--- need to change
-Route::get('/delete-profile/{doctorID}',[FrontendDoctorController::class,'deleteProfile'])->name('doctor.delete');
 
 
 
@@ -59,21 +55,44 @@ Route::group(['middleware'=>'patientAuth'],function(){
 
 Route::get('/logout',[FrontendPatientController::class,'logout'])->name('patient.logout');
 
-//single patient profile
+//single patient profile view
 Route::get('/view-profile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
 //cancle appointment from patient profile
 Route::get('/appointment-cancel/{id}',[FrontendPatientController::class,'cancelAppointment'])->name('frontend.appointment.cancel');
 
-//Update Profile
+//update button in a patient profile
 Route::post('/update-profile/{profileId}',[FrontendPatientController::class,'updateProfile'])->name('update.profile');
 
-//Edit profile
 
-Route::get('/edit-profile/{profileId}',[FrontendPatientController::class,'editProfile'])->name('edit.profile');
-
-Route::post('/doctor-appointment/{doctor_id}',[AppointmentController::class,'appointment'])->name('book.appointment');
+//Edit profile in a single patient profile
+Route::get('/edit-profile',[FrontendPatientController::class,'editProfile'])->name('edit.profile');
+//book doctor appointment
+Route::post('/book-appointment/{doctor_id}',[AppointmentController::class,'appointment'])->name('book.appointment');
+//for payment
+Route::post('/success', [FrontendPaymentController::class, 'success']);
 
 });
+
+
+
+
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [PaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [PaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [PaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [PaymentController::class, 'payViaAjax']);
+
+
+Route::post('/fail', [PaymentController::class, 'fail']);
+Route::post('/cancel', [PaymentController::class, 'cancel']);
+
+Route::post('/ipn', [PaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+
+
 
 
 
@@ -93,6 +112,8 @@ Route::get('/',[HomeController::class,'home'])->name('dashboard');
 Route::get('/patientlist',[PatientlistController::class,'patientlist'])->name('patient.list');
 Route::get('/patient-form',[PatientlistController::class,'form'])->name('patient.form');
 Route::post('/Patient-store',[PatientlistController::class,'store'])->name('patient.store');
+//view patient from backend
+Route::get('/patient-view/{id}',[PatientlistController::class,'viewPatient'])->name('patient.view');
 
 
 //Doctor List
@@ -101,10 +122,13 @@ Route::get('/doctor-form',[DoctorlistController::class,'form'])->name('doctor.fo
 Route::post('/doctor-store',[DoctorlistController::class,'store'])->name('doctor.store');
 //view doctor from backend
 Route::get('/doctor/view/{doc_id}',[DoctorlistController::class,'viewDoctor'])->name('doctor.view');
+//delete doctor from backend
+Route::get('/delete-profile/{id}',[DoctorlistController::class,'deleteProfile'])->name('doctor.delete');
+
 //edit doctor from backend
-//Route::get('/doctor/edit/{doc_id}',[DoctorlistController::class,'editDoctor'])->name('doctor.edit');
+Route::get('/edit-doctor/{id}',[DoctorlistController::class,'editDoctor'])->name('doctor.edit');
 //update doctor from backend
-//Route::get('/doctor/update/{doc_id}',[DoctorlistController::class,'updateDoctor'])->name('doctor.update');
+Route::post('/update-doctor/{id}',[DoctorlistController::class,'updateDoctor'])->name('doctor.update');
 
 
 

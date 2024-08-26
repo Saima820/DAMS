@@ -18,9 +18,11 @@ return new class extends Migration
             $table->date('appointment_date');
             $table->integer('time_slot_id');
             $table->string('status')->default('pending');
+            $table->string('payment_status')->default('pending');
             $table->string('payment_method')->default('pending');
-            $table->integer('amount');
+            $table->integer('visiting_charge')->nullable();
             $table->integer('trx_id')->nullable();
+
             $table->timestamps();
         });
     }

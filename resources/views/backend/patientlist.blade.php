@@ -20,9 +20,9 @@
   </thead>
   <tbody>
 
-  @foreach($allPatient as $patient)
+  @foreach($allPatient as $key=>$patient)
     <tr>
-      <th scope="row">{{$patient->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>
         <img src="{{url('/uploads/patients/'.$patient->image)}}" alt="" width="60">
       </td>
@@ -35,9 +35,7 @@
 
 
       <td>
-        <a class="btn btn-info" href="#">View</a>
-        <a class="btn btn-danger" href="#">Delete</a>
-        <a class="btn btn-warning" href="#">Edit</a>
+        <a class="btn btn-info" href="{{route('patient.view',$patient->id)}}">View</a>
       </td>
     </tr>
 

@@ -12,43 +12,16 @@
 									</div>
 									<div class="doc-info-cont">
 										<h4 class="doc-name">{{$singleDoctor->name}}</h4>
-										<p class="doc-speciality">{{$singleDoctor->specialist}}</p>
-                                        <p class="doc-contact">{{$singleDoctor->phonenumber}}</p>
-                                        <p class="doc-email">{{$singleDoctor->email}}</p>
-                                        <p class="doc-status">{{$singleDoctor->status}}</p>
-										<p class="doc-department"><img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">Dentist</p>
-										<div class="rating">
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star"></i>
-											<span class="d-inline-block average-rating">(35)</span>
-										</div>
+										<p class="doc-speciality">Specialist:{{$singleDoctor->department->name}}</p>
+                                        <p class="doc-contact">Phone Number:{{$singleDoctor->phonenumber}}</p>
+                                        <p class="doc-email">Email:{{$singleDoctor->email}}</p>
+                                        <p class="doc-status">Status:{{$singleDoctor->status}}</p>
+                                        <p class="doc-status">Visiting Charge:{{$singleDoctor->visiting_charge}}</p>
+
+
 										<div class="clinic-details">
 											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
-											<ul class="clinic-gallery">
-												<li>
-													<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-01.jpg" alt="Feature">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-02.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-02.jpg" alt="Feature Image">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-03.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-03.jpg" alt="Feature">
-													</a>
-												</li>
-												<li>
-													<a href="assets/img/features/feature-04.jpg" data-fancybox="gallery">
-														<img src="assets/img/features/feature-04.jpg" alt="Feature">
-													</a>
-												</li>
-											</ul>
+
 										</div>
 										<div class="clinic-services">
 											<span>Dental Fillings</span>
@@ -76,6 +49,10 @@
                                 </div>
 
 
+                                <div class="mb-3">
+                                    <label for="exampleInputVisitingcharge1" class="form-label">Visiting Charge</label>
+                                    <input name="visiting_charge" required value="{{$singleDoctor->visiting_charge}}" readonly type="text" class="form-control" aria-describedby="nameHelp">
+                                </div>
 
 									<div class="clinic-booking">
                                     <button class="btn btn-success" style="color:black" type="submit"> Book Now</button>
@@ -86,12 +63,6 @@
 								</div>
 							</div>
 						</div>
-
-
-
-
-
-
 							</div>
 
 @endsection
