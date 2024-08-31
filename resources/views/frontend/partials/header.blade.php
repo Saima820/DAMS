@@ -10,7 +10,7 @@
 							</span>
 						</a>
 						<a href="index-2.html" class="navbar-brand logo">
-							<img src="{{url('/logo.png')}}" class="img-fluid" alt="Logo">
+							<img src="{{url('/logo.png')}}" style="width: 100px;" class="img-fluid" alt="Logo">
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
@@ -52,7 +52,7 @@
 							</div>
 							<div class="header-contact-detail">
 								<p class="contact-header">Contact</p>
-								<p class="contact-info-header">01634382166</p>
+								<p class="contact-info-header">01736467363</p>
 							</div>
 
 						</li>

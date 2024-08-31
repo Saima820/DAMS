@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\AppointmentEmail;
 use App\Models\Appointment;
-
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -14,8 +14,8 @@ class AppointmentlistController extends Controller
     {
 
         $allAppointment = Appointment::with('patient','doctor')->paginate(3);
-        //dd($allAppointment);
 
+        //dd($allAppointment);
         return view ('backend.appointmentlist',compact('allAppointment'));
     }
 
@@ -39,7 +39,7 @@ class AppointmentlistController extends Controller
         ]);
 
         notify()->success('Appointment success.');
-          return redirect()->route('appointment.list');
+        return redirect()->route('appointment.list');
     }
 
     public function accept($aId)
@@ -59,10 +59,44 @@ class AppointmentlistController extends Controller
 
     return redirect()->back();
 
+    }
 
 
+    public function addPrescription($id)
+    {
+        $viewPrescription=Appointment::with('patient','doctor')->find($id);
+        // dd($viewPrescription);
+        return view('backend.page.prescription-view',compact('viewPrescription'));
+    }
+
+
+    public function createPrescription(Request $request,$id)
+    {
+        $appointment=Appointment::find($id);
+
+        Prescription::create([
+         'doctor_id'=>$appointment->doctor_id,
+         'patient_id'=>auth()->user()->id,
+         'appointment_id'=>$id,
+         'observation'=>$request->observation,
+         'assessment'=>$request->assessment,
+         'medical_test'=>$request->medical_test,
+         'medication'=>$request->medication,
+        ]);
+
+
+
+        notify()->success('Prescription created successfully');
+        return redirect()->back();
 
     }
+
+
+
+
+
+
+
 
     public function report()
     {

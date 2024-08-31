@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,6 +16,7 @@ class HomeController extends Controller
         $allPatientCount=Patient::count();
         $allDepartmentCount=Department::count();
         $allAppointmentCount=Appointment::count();
-        return view ('backend.home',compact('allPatientCount','allDepartmentCount','allAppointmentCount'));
+        $allDoctorCount=User::count();
+        return view ('backend.home',compact('allPatientCount','allDepartmentCount','allAppointmentCount','allDoctorCount'));
     }
 }

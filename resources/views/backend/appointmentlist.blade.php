@@ -43,6 +43,9 @@
 
     <td>
         <a class="btn btn-info" href="#">View</a>
+        @if($appointment->status=='accept')
+        <a class="btn btn-primary" href="{{route('prescription.add',$appointment->id)}}">Add Prescription</a>
+        @endif
 
         @if($appointment->status=='pending')
         <a class="btn btn-success" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>

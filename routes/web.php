@@ -136,9 +136,15 @@ Route::post('/update-doctor/{id}',[DoctorlistController::class,'updateDoctor'])-
 Route::get('/appointmentlist',[AppointmentlistController::class,'appointmentlist'])->name('appointment.list');
 //accept appointment from appointment list
 Route::get('/appointment-accept/{id}',[AppointmentlistController::class,'accept'])->name('appointment.accept');
+//add prescription button in appointmentlist
+Route::get('/add-prescription/{prescriptionid}',[AppointmentlistController::class,'addPrescription'])->name('prescription.add');
+//view prescription button in appointmentlist
+Route::post('/create-prescription/{id}',[AppointmentlistController::class,'createPrescription'])->name('prescription.create');
 
 Route::get('/appointment-form',[AppointmentlistController::class,'form'])->name('appointment.form');
 Route::post('/appointment-store',[AppointmentlistController::class,'store'])->name('appointment.store');
+
+
 
 //Payment List
 Route::get('/payment',[PaymentController::class,'payment'])->name('payment.gateway');

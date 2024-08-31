@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Department;
-use App\Models\Doctor;
+use App\Models\User;
 
 class DepartmentController extends Controller
 {
@@ -15,7 +15,7 @@ class DepartmentController extends Controller
    {
 
 
-    $relatedDoctor=Doctor::where('department_id',$id)->get();
+    $relatedDoctor=User::where('department_id',$id)->get();
     //dd($relatedDoctor);
     return view('frontend.page.specific_department',compact('relatedDoctor'));
    }

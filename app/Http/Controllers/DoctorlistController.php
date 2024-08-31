@@ -114,7 +114,7 @@ class DoctorlistController extends Controller
         'user_name'=>'required',
         'email_address'=>'required|email',
         'phone_number'=>'required',
-        'doctor_image'=>'required'
+
 
 
         ]);
@@ -125,13 +125,33 @@ class DoctorlistController extends Controller
             return redirect()->back();
         }
 
-        //query
         $updateDoctor=User::find($id);
+
+
+        $filename=$updateDoctor->image;
+
+        //check if file exits
+
+        if($request->hasFile('doctor_image'))
+        {
+            $file=$request->file('doctor_image');
+
+            //file name generate
+            $filename=date('Ymdhis').".".$file->getClientOriginalExtension();
+
+
+            $file->storeAs('/doctors', $filename);
+
+        }
+
+
+        //query
+
         $updateDoctor->update([
             'name'=>$request->user_name,
             'email'=>$request->email_address,
             'phonenumber'=>$request->phone_number,
-            'image'=>$request->doctor_image
+            'image'=>$filename
         ]);
 
         notify()->success('Doctor updated successfully.');

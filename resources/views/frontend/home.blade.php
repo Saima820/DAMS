@@ -7,7 +7,7 @@
 <div class="main-wrapper">
 
 <!-- Home Banner -->
-<section class="section section-search">
+<section class="section section-search" style="background:url('https://kindgeek.com/blog/wp-content/uploads/2019/12/OBUZORLdEFO3HofPcHMa.jpeg') ;">
 				<div class="container-fluid">
 					<div class="banner-wrapper">
 						<div class="banner-header text-center">
@@ -20,10 +20,10 @@
 							<form action="{{route('search')}}">
 
 								<div class="form-group search-info">
-									<input name="search_key" value="{{request()->search_key}}" type="text" class="form-control" placeholder="Search Doctors Here">
+									<input name="search_key" value="{{request()->search_key}}" type="text" class="form-control" placeholder="Search Doctors and Departments Here">
 									<span class="form-text">Ex : Dentist, Dermatologists etc</span>
 								</div>
-								<button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i> <span>Search</span></button>
+								<button type="submit" class="btn btn-primary search-btn active"><i class="fas fa-search"></i> <span>Search</span></button>
 							</form>
 						</div>
 						<!-- /Search -->
@@ -100,12 +100,12 @@
 							<div class="doctor-slider slider">
 
 								<!-- Doctor Widget -->
-
+                             @foreach($allDoctor as $doctor)
 
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="">
+											<img class="img-fluid" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
 										</a>
 										<a href="javascript:void(0)" class="fav-btn">
 											<i class="far fa-bookmark"></i>
@@ -113,29 +113,19 @@
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
-											<a href="doctor-profile.html"></a>
+											<a href="doctor-profile.html">{{$doctor->name}}</a>
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality"></p>
-										<div class="rating">
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<span class="d-inline-block average-rating"></span>
-										</div>
+										<p class="speciality">Specialist:{{$doctor->department->name}}</p>
+                                        <p class="speciality">Phone Number:{{$doctor->phonenumber}}</p>
+                                        <p class="speciality">Email:{{$doctor->email}}</p>
+                                        <p class="speciality">Status:{{$doctor->status}}</p>
+                                        <p class="speciality">Visiting Charge:{{$doctor->visiting_charge}}</p>
+
 										<ul class="available-info">
-											<li>
-												<i class="fas fa-map-marker-alt"></i>
-											</li>
-											<li>
-												<i class="far fa-clock"></i>
-											</li>
-											<li>
-												<i class="far fa-money-bill-alt"></i> $300 - $1000
-												<i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-											</li>
+
+
+
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
@@ -147,6 +137,7 @@
 										</div>
 									</div>
 								</div>
+                                @endforeach
 
 								<!-- /Doctor Widget -->
 

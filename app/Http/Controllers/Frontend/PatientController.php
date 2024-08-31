@@ -117,7 +117,7 @@ class PatientController extends Controller
     public function viewProfile()
     {
 
-        $allAppointment = Appointment::where('patient_id',auth('patientG')->user()->id)->get();
+        $allAppointment = Appointment::where('patient_id',auth('patientG')->user()->id)->orderBy('id','desc')->get();
         return view('frontend.page.single_patient_profile',compact('allAppointment'));
 
     }

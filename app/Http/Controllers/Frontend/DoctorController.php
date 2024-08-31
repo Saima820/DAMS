@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -28,9 +29,12 @@ class DoctorController extends Controller
   {
     //dd(request()->all());
     $allDoctor=User::where('name','LIKE','%'.request()->search_key.'%')->get();
+
+
     //where('column name', 'condition', '%value%')
     return view('frontend.page.search',compact('allDoctor'));
 
   }
+  
 }
 

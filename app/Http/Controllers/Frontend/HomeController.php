@@ -12,8 +12,13 @@ class HomeController extends Controller
 {
     public function home()
     {
-    $allDoctor=User::all();
+
+    $allDoctor=User::with('department')
+    ->where('role','doctor')
+    ->get();
+     //dd($allDoctor);
     $allDepartment=Department::all();
+
     return view ('frontend.home',compact('allDepartment','allDoctor'));
 
 

@@ -9,7 +9,13 @@ class PrescriptionController extends Controller
 {
     public function prescription()
     {
-        return view ('backend.prescriptionlist');
+        // dd('habijabi');
+
+        $allPrescription=Prescription::with('appointment')->get();
+        // dd($allPrescription);
+
+        return view('backend.prescriptionlist',compact('allPrescription'));
+
     }
 
     public function form()
@@ -42,7 +48,9 @@ class PrescriptionController extends Controller
             'phonenumber' =>$request->phone_number
           ]);
 
-          return redirect()->route('prescription.list');
+
+
+
 
     }
 }
