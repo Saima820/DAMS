@@ -15,6 +15,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\Frontend\AppointmentController;
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\TimeslotController;
 
 
 
@@ -144,12 +145,17 @@ Route::post('/create-prescription/{id}',[AppointmentlistController::class,'creat
 Route::get('/appointment-form',[AppointmentlistController::class,'form'])->name('appointment.form');
 Route::post('/appointment-store',[AppointmentlistController::class,'store'])->name('appointment.store');
 
-
+//Time Slot
+Route::get('/time-slot',[TimeslotController::class,'timeslot'])->name('time.slot');
+Route::get('/time-slot-form',[TimeslotController::class,'timeslotform'])->name('time-slot.form');
+Route::post('/time-slot-store',[TimeslotController::class,'timeslotstore'])->name('time-slot.store');
 
 //Payment List
 Route::get('/payment',[PaymentController::class,'payment'])->name('payment.gateway');
 Route::get('/payment-form',[PaymentController::class,'form'])->name('payment.form');
 Route::post('/payment-store',[PaymentController::class,'store'])->name('payment.store');
+
+
 
 //Department List
 Route::get('/department',[DepartmentController::class,'department'])->name('department.list');

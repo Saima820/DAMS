@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\Timeslot;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -18,7 +19,8 @@ class DoctorController extends Controller
   public function viewProfile($id)
   {
     $singleDoctor=User::find($id);
-    return view ('frontend.page.single_doctor',compact('singleDoctor'));
+    $alltimeslot=Timeslot::all();
+    return view ('frontend.page.single_doctor',compact('singleDoctor','alltimeslot'));
   }
 
 
@@ -35,6 +37,6 @@ class DoctorController extends Controller
     return view('frontend.page.search',compact('allDoctor'));
 
   }
-  
+
 }
 

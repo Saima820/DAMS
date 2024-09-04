@@ -5,6 +5,9 @@
 
 
 <h1> Department List </h1>
+
+<a class="btn btn-primary" href="{{route('department.form')}}">Add Department</a>
+
 <table class="table">
   <thead>
   <tr>
@@ -37,6 +40,6 @@
 
 {{$allDepartment->links()}}
 
-<a class="btn btn-primary" href="{{route('department.form')}}">Add Department</a>
+
 
 @endsection

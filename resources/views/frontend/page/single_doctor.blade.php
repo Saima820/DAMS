@@ -42,9 +42,10 @@
                                 <div class="mb-3">
                                     <label for="exampleInputName1" class="form-label">Select Slot</label>
                                    <select name="time_slot_id" id="" class="form-control">
-                                    <option value="1">10-11</option>
-                                    <option value="2">11-12</option>
-                                    <option value="3">12-1:00</option>
+                                    @foreach($alltimeslot as $timeslot)
+                                    <option value="{{ $timeslot->id}}">{{ $timeslot->timeslot}}</option>
+                                    @endforeach
+
                                    </select>
                                 </div>
 

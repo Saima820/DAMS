@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('payment_status')->default('pending');
             $table->string('payment_method')->default('pending');
             $table->integer('visiting_charge')->nullable();
+            $table->boolean('is_prescribed')->default(false);
             $table->integer('trx_id')->nullable();
 
             $table->timestamps();

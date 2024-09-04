@@ -23,7 +23,7 @@
   @foreach($allPrescription as $prescription)
 
     <tr>
-      <th scope="row"></th>
+      <th scope="row">{{$prescription->id}}</th>
       <td>{{$prescription->appointment->doctor->name}}</td>
       <td>{{$prescription->appointment->patient->patient_name}}</td>
       <td>{{$prescription->created_at}}</td>
@@ -33,11 +33,12 @@
       <td>{{$prescription->medication}}</td>
 
     </tr>
+    @endforeach
   </tbody>
 </table>
 
-@endforeach
 
-<a class="btn btn-primary" href="{{route('prescription.form')}}">Add Prescription</a>
+
+
 
 @endsection

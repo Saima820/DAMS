@@ -33,7 +33,7 @@
       <td>{{$appointment->patient->patient_name}}</td>
       <td>{{$appointment->doctor->name}}</td>
       <td>{{$appointment->appointment_date}}</td>
-      <td>{{$appointment->time_slot_id}}</td>
+      <td>{{$appointment->slot->timeslot}}</td>
       <td>{{$appointment->status}}</td>
       <td>{{$appointment->payment_method}}</td>
       <td>{{$appointment->payment_status}}</td>
@@ -43,9 +43,12 @@
 
     <td>
         <a class="btn btn-info" href="#">View</a>
-        @if($appointment->status=='accept')
-        <a class="btn btn-primary" href="{{route('prescription.add',$appointment->id)}}">Add Prescription</a>
+        @if($appointment->is_prescribed==1)
+        <a class="btn btn-primary" href="{{route('prescription.list',$appointment->id)}}">view Prescription</a>
+        @else
+        <a class="btn btn-primary" href="{{route('prescription.add',$appointment->id)}}">add Prescription</a>
         @endif
+
 
         @if($appointment->status=='pending')
         <a class="btn btn-success" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>
@@ -62,8 +65,6 @@
 </table>
 
 {{ $allAppointment->links() }}
-
-<a class="btn btn-primary" href="{{route('appointment.form')}}">Add Appointment</a>
 
 @endsection
 

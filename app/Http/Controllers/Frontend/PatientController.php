@@ -21,7 +21,7 @@ class PatientController extends Controller
          'patient_name'=>'required',
          'email'=>'required|email',
          'password'=>'required|min:6|confirmed',
-         'mobile_number'=>'required|min:9|max:14|unique:patients,mobile',
+         'mobile_number'=>'required|regex:/(01)[0-9]{9}/|min:11|max:11|unique:patients,mobile',
          'patient_image'=>'required|file'
 
 

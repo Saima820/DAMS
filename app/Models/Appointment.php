@@ -24,5 +24,12 @@ class Appointment extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function slot()
+    {
+        return $this->belongsTo(Timeslot::class,'time_slot_id');
+    }
+
+    
+
 
 }

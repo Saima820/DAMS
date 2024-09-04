@@ -13,7 +13,7 @@ class AppointmentlistController extends Controller
     public function appointmentlist()
     {
 
-        $allAppointment = Appointment::with('patient','doctor')->paginate(3);
+        $allAppointment = Appointment::with('patient','doctor','slot')->paginate(3);
 
         //dd($allAppointment);
         return view ('backend.appointmentlist',compact('allAppointment'));
@@ -84,18 +84,17 @@ class AppointmentlistController extends Controller
          'medication'=>$request->medication,
         ]);
 
+        $appointment->update([
+
+            'is_prescribed'=>true
+        ]);
+
 
 
         notify()->success('Prescription created successfully');
         return redirect()->back();
 
     }
-
-
-
-
-
-
 
 
     public function report()

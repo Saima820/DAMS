@@ -41,7 +41,7 @@ class AppointmentController extends Controller
             DB::beginTransaction();
 
 
-            //check if rugi can take appointment
+            //check if patient can take appointment
             $checkAppointment=Appointment::where('doctor_id',$dId)
                             ->where('patient_id',auth('patientG')->user()->id)
                             ->whereDate('appointment_date',date('y-m-d',strtotime($request->appointment_date)))
@@ -60,7 +60,7 @@ class AppointmentController extends Controller
                 DB::commit();
 
 
-                
+
                 //call ssl commerz to pay
                 $payment=new PaymentController();
 
