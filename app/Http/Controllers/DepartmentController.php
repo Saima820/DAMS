@@ -9,7 +9,7 @@ class DepartmentController extends Controller
 {
     public function department()
     {
-        $allDepartment = Department::paginate(3);
+        $allDepartment = Department::orderBy('id', 'DESC')->paginate(10);
         return view ('backend.departmentlist',compact('allDepartment'));
 
     }

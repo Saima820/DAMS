@@ -38,7 +38,7 @@
 
 
 							<li>
-								<a href="admin/index.html" target="_blank">Admin</a>
+								<a href="{{route('dashboard')}}">Admin</a>
 							</li>
 							<li class="login-link">
 								<a href="login.html">Login / Signup</a>
@@ -138,7 +138,15 @@
 
           <div>
             <label for="">Enter your Mobile Number:</label>
-            <input required type="text" name="mobile_number" placeholder="Enter your Mobile number" class="form-control">
+            <input required type="number" name="mobile_number" placeholder="Enter your Mobile number" class="form-control">
+          </div>
+
+          <div>
+            <label for="">Gender</label>
+           <select class="form-control" name="gender" id="">
+            <option value="Female"> Female </option>
+            <option value="Male"> Male </option>
+           </select>
           </div>
 
           <div>

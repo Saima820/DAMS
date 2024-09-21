@@ -58,6 +58,8 @@ Route::get('/logout',[FrontendPatientController::class,'logout'])->name('patient
 
 //single patient profile view
 Route::get('/view-profile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
+//view prescription
+Route::get('/view-myprescription/{id}',[FrontendPatientController::class,'viewmyPrescription'])->name('view.myPrescription');
 //cancle appointment from patient profile
 Route::get('/appointment-cancel/{id}',[FrontendPatientController::class,'cancelAppointment'])->name('frontend.appointment.cancel');
 
@@ -164,6 +166,7 @@ Route::post('/department-store',[DepartmentController::class,'store'])->name('de
 
 //Prescription List
 Route::get('/prescription',[PrescriptionController::class,'prescription'])->name('prescription.list');
+Route::get('/prescription/view/{id}',[PrescriptionController::class,'viewPrescription'])->name('prescription.view');
 Route::get('/prescription-form',[PrescriptionController::class,'form'])->name('prescription.form');
 Route::post('/prescription-store',[PrescriptionController::class,'store'])->name('prescription.store');
 

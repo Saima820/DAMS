@@ -9,9 +9,16 @@ class PrescriptionController extends Controller
 {
     public function prescription()
     {
-        // dd('habijabi');
+        if(auth()->user()->role=='doctor')
+        {
+            $allPrescription=Prescription::with('appointment')->where('doctor_id',auth()->user()->id)->get();
 
-        $allPrescription=Prescription::with('appointment')->get();
+        }else{
+
+            $allPrescription=Prescription::with('appointment')->get();
+        }
+
+
         // dd($allPrescription);
 
         return view('backend.prescriptionlist',compact('allPrescription'));
@@ -48,9 +55,14 @@ class PrescriptionController extends Controller
             'phonenumber' =>$request->phone_number
           ]);
 
+    }
 
 
-
-
+    public function viewPrescription($id)
+    {
+        // dd($id);
+        $viewPrescription=Prescription::with('doctor','patient')->find($id);
+        // dd($viewPrescription);
+        return view('backend.page.prescription-view',compact('viewPrescription'));
     }
 }

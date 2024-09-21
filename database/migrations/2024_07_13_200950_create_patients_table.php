@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->string('email',64);
             $table->string('mobile',11);
+            $table->string('gender');
             $table->string('image')->nullable();
             $table->date('dob')->nullable();
             $table->timestamps();

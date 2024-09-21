@@ -19,9 +19,9 @@
   </thead>
   <tbody>
 
-    @foreach($allDepartment as $department)
+    @foreach($allDepartment as  $key=>$department)
     <tr>
-      <th scope="row">{{$department->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$department->name}}</td>
       <td>{{$department->status}}</td>
 

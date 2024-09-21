@@ -32,15 +32,15 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="symptoms" class="form-label">Observation</label>
-                    <textarea name="observation" class="form-control" id="symptoms" rows="3" placeholder="Enter symptoms">{{$viewPrescription->observation}}</textarea>
+                    <textarea name="observation" class="form-control" id="symptoms" rows="3" placeholder="Enter symptoms"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="diagnosis" class="form-label">Assessment</label>
-                    <textarea name="assessment" class="form-control" id="diagnosis" rows="3" placeholder="Enter diagnosis">{{$viewPrescription->assessment}}</textarea>
+                    <textarea name="assessment" class="form-control" id="diagnosis" rows="3" placeholder="Enter diagnosis"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="treatment" class="form-label">Medical Test</label>
-                    <textarea name="medical_test" class="form-control" id="treatment" rows="3" placeholder="Enter treatment">{{$viewPrescription->medical_test}}</textarea>
+                    <textarea name="medical_test" class="form-control" id="treatment" rows="3" placeholder="Enter treatment"></textarea>
                 </div>
 
 
@@ -50,7 +50,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="prescriptionNotes" class="form-label">Medication</label>
-                    <textarea name="medication" class="form-control" id="prescriptionNotes" rows="9" placeholder="Enter prescription notes">{{$viewPrescription->medication}}</textarea>
+                    <textarea name="medication" class="form-control" id="prescriptionNotes" rows="9" placeholder="Enter prescription notes"></textarea>
                 </div>
             </div>
         </div>

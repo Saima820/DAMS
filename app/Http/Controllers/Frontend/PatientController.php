@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\Patient;
+use App\Models\Prescription;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -57,6 +58,7 @@ class PatientController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
             'mobile'=>$request->mobile_number,
+            'gender'=>$request->gender,
             'image'=>$fileName
 
         ]);
@@ -109,7 +111,7 @@ class PatientController extends Controller
 
         notify()->success('Logout success');
 
-        return redirect()->back();
+        return redirect()->route('home');
 
     }
 
@@ -118,7 +120,9 @@ class PatientController extends Controller
     {
 
         $allAppointment = Appointment::where('patient_id',auth('patientG')->user()->id)->orderBy('id','desc')->get();
-        return view('frontend.page.single_patient_profile',compact('allAppointment'));
+        $myPrescription = Prescription::where('patient_id',auth('patientG')->user()->id)->get();
+        // dd($myPrescription);
+        return view('frontend.page.single_patient_profile',compact('allAppointment','myPrescription'));
 
     }
 
@@ -169,6 +173,13 @@ class PatientController extends Controller
         notify()->success('Appointment cancel successful');
         return redirect()->back();
 
+    }
+
+    public function viewmyPrescription($id)
+    {
+        $myPrescription = Prescription::find($id);
+
+       return view('frontend.page.view-myPrescription',compact('myPrescription'));
     }
 
 }

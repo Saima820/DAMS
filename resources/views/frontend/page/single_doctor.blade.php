@@ -19,14 +19,8 @@
                                         <p class="doc-status">Visiting Charge:{{$singleDoctor->visiting_charge}}</p>
 
 
-										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
 
-										</div>
-										<div class="clinic-services">
-											<span>Dental Fillings</span>
-											<span>Teeth Whitneing</span>
-										</div>
+
 									</div>
 								</div>
 								<div class="doc-info-right">
@@ -54,6 +48,26 @@
                                     <label for="exampleInputVisitingcharge1" class="form-label">Visiting Charge</label>
                                     <input name="visiting_charge" required value="{{$singleDoctor->visiting_charge}}" readonly type="text" class="form-control" aria-describedby="nameHelp">
                                 </div>
+
+
+
+<div class="form-check">
+        <input value="pay_later" class="form-check-input" type="radio" name="payment_type" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Pay Later
+        </label>
+        </div>
+        <div class="form-check">
+        <input value="pay_now" class="form-check-input" type="radio" name="payment_type" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+            Pay Now
+        </label>
+</div>
+
+
+
+
+
 
 									<div class="clinic-booking">
                                     <button class="btn btn-success" style="color:black" type="submit"> Book Now</button>

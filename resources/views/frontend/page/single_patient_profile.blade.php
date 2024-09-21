@@ -85,7 +85,7 @@
 									<nav class="dashboard-menu">
 										<ul>
 											<li class="active">
-												<a href="patient-dashboard.html">
+												<a href="{{route('home')}}">
 													<i class="fas fa-columns"></i>
 													<span>Dashboard</span>
 												</a>
@@ -99,20 +99,20 @@
 											</li>
 
 
-											<li>
+											<!-- <li>
 												<a href="profile-settings.html">
 													<i class="fas fa-user-cog"></i>
 													<span>Profile Settings</span>
 												</a>
-											</li>
-											<li>
+											</li> -->
+											<!-- <li>
 												<a href="change-password.html">
 													<i class="fas fa-lock"></i>
 													<span>Change Password</span>
 												</a>
-											</li>
+											</li> -->
 											<li>
-												<a href="index-2.html">
+												<a href="{{route('patient.logout')}}">
 													<i class="fas fa-sign-out-alt"></i>
 													<span>Logout</span>
 												</a>
@@ -138,12 +138,12 @@
 											<li class="nav-item">
 												<a class="nav-link" href="#pat_prescriptions" data-toggle="tab">Prescriptions</a>
 											</li>
-											<li class="nav-item">
+											<!-- <li class="nav-item">
 												<a class="nav-link" href="#pat_medical_records" data-toggle="tab"><span class="med-records">Medical Records</span></a>
 											</li>
 											<li class="nav-item">
 												<a class="nav-link" href="#pat_billing" data-toggle="tab">Billing</a>
-											</li>
+											</li> -->
 										</ul>
 									</nav>
 									<!-- /Tab Menu -->
@@ -225,22 +225,23 @@
 														<table class="table table-hover table-center mb-0">
 															<thead>
 																<tr>
-																	<th>Appt Date </th>
-																	<th>Name</th>
-																	<th>Created by</th>
-																	<th></th>
+																	<th>Prescription Date </th>
+																	<th>Doctor Name</th>
+																	<th>Action</th>
+
 																</tr>
 															</thead>
 															<tbody>
+                                                                @foreach($myPrescription as $prescription)
 																<tr>
-																	<td>{{$appointment->appointment_date}}</td>
-																	<td>Prescription 1</td>
+																	<td>{{$prescription->created_at}}</td>
+
 																	<td>
 																		<h2 class="table-avatar">
 																			<a href="doctor-profile.html" class="avatar avatar-sm mr-2">
 																				<img class="avatar-img rounded-circle" src="{{url('/uploads/doctors/'.$appointment->doctor->image)}}" alt="User Image">
 																			</a>
-																			<a href="doctor-profile.html">{{$appointment->doctor->name}}<span>{{$appointment->doctor->department->name}}</span></a>
+																			<a href="doctor-profile.html">{{$prescription->doctor->name}}<span>{{$prescription->doctor->department->name}}</span></a>
 																		</h2>
 																	</td>
 																	<td class="text-right">
@@ -248,12 +249,13 @@
 																			<!-- <a href="javascript:void(0);" class="btn btn-sm bg-primary-light">
 																				<i class="fas fa-print"></i> Print
 																			</a> -->
-																			<!-- <a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+																			<a href="{{route('view.myPrescription',$prescription->id)}}" class="btn btn-sm bg-info-light">
 																				<i class="far fa-eye"></i> View
-																			</a> -->
+																			</a>
 																		</div>
 																	</td>
 																</tr>
+                                                                @endforeach
 
 
 
@@ -266,7 +268,7 @@
 										<!-- /Prescription Tab -->
 
 										<!-- Medical Records Tab -->
-										<div id="pat_medical_records" class="tab-pane fade">
+										<!-- <div id="pat_medical_records" class="tab-pane fade">
 											<div class="card card-table mb-0">
 												<div class="card-body">
 													<div class="table-responsive">
@@ -527,11 +529,11 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<!-- /Medical Records Tab -->
 
 										<!-- Billing Tab -->
-										<div id="pat_billing" class="tab-pane fade">
+										<!-- <div id="pat_billing" class="tab-pane fade">
 											<div class="card card-table mb-0">
 												<div class="card-body">
 													<div class="table-responsive">
@@ -801,7 +803,7 @@
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<!-- /Billing Tab -->
 
 									</div>

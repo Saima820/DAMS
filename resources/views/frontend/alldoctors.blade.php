@@ -19,7 +19,7 @@
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
+											<img class="img-fluid" alt="User Image" style="height: 300px;" src="{{url('/uploads/doctors/'.$doctor->image)}}">
 										</a>
 										<a href="javascript:void(0)" class="fav-btn">
 											<i class="far fa-bookmark"></i>
@@ -35,22 +35,22 @@
                                         <p class="speciality">Email:{{$doctor->email}}</p>
                                         <p class="speciality">Status:{{$doctor->status}}</p>
                                         <p class="speciality">Visiting Charge:{{$doctor->visiting_charge}}</p>
-										<div class="rating">
+										<!-- <div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<span class="d-inline-block average-rating">(17)</span>
-										</div>
+										</div> -->
 
 										<div class="row row-sm">
 											<div class="col-6">
 												<a href="{{route('view.docprofile',$doctor->id)}}" class="btn view-btn">View Profile</a>
 											</div>
-											<div class="col-6">
+											<!-- <div class="col-6">
 												<a href="#" data-toggle="modal" data-target="#booking" class="btn book-btn" >Book Now</a>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>
@@ -65,7 +65,7 @@
 				</div>
 			</section>
 
-            <!-- Modal -->
+            <!-- Modal
 <div class="modal fade" id="booking" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -118,7 +118,7 @@
 
     </div>
   </div>
-</div>
+</div> -->
 
 
 @endsection

@@ -13,7 +13,7 @@
 		<div class="account-settings">
 			<div class="user-profile">
 				<div class="user-avatar">
-					<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+					<img src="{{url('/uploads/patients/'.auth('patientG')->user()->image)}}" alt="Maxwell Admin">
 				</div>
 				<h5 class="user-name">{{auth('patientG')->user()->patient_name}}</h5>
 				<h6 class="user-email">{{auth('patientG')->user()->email}}</h6>

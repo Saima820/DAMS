@@ -60,11 +60,14 @@ class AppointmentController extends Controller
                 DB::commit();
 
 
+                if($request->payment_type=='pay_now'){
 
                 //call ssl commerz to pay
                 $payment=new PaymentController();
 
                 $payment->payNow($appointment);
+                }
+
             }else{
                 notify()->error('You have apppointment on this date.');
                 return redirect()->back();

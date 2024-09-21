@@ -16,6 +16,7 @@ class DepartmentController extends Controller
 
 
     $relatedDoctor=User::where('department_id',$id)->get();
+
     //dd($relatedDoctor);
     return view('frontend.page.specific_department',compact('relatedDoctor'));
    }

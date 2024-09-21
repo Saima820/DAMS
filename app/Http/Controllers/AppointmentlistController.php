@@ -12,8 +12,17 @@ class AppointmentlistController extends Controller
 {
     public function appointmentlist()
     {
+        //  dd(auth()->user());
 
-        $allAppointment = Appointment::with('patient','doctor','slot')->paginate(3);
+        if(auth()->user()->role=='doctor'){
+
+            $allAppointment = Appointment::with('patient','doctor','slot')->where('doctor_id',auth()->user()->id)->paginate(10);
+
+        }else{
+
+            $allAppointment = Appointment::with('patient','doctor','slot')->paginate(10);
+
+        }
 
         //dd($allAppointment);
         return view ('backend.appointmentlist',compact('allAppointment'));
@@ -66,7 +75,7 @@ class AppointmentlistController extends Controller
     {
         $viewPrescription=Appointment::with('patient','doctor')->find($id);
         // dd($viewPrescription);
-        return view('backend.page.prescription-view',compact('viewPrescription'));
+        return view('backend.page.prescription-add',compact('viewPrescription'));
     }
 
 
@@ -76,7 +85,7 @@ class AppointmentlistController extends Controller
 
         Prescription::create([
          'doctor_id'=>$appointment->doctor_id,
-         'patient_id'=>auth()->user()->id,
+         'patient_id'=>$appointment->patient_id,
          'appointment_id'=>$id,
          'observation'=>$request->observation,
          'assessment'=>$request->assessment,

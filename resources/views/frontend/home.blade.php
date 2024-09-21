@@ -88,12 +88,12 @@
 						<div class="col-lg-4">
 							<div class="section-header ">
 								<h2>Book Our Doctor</h2>
-								<p>Lorem Ipsum is simply dummy text </p>
+								<!-- <p>Lorem Ipsum is simply dummy text </p> -->
 							</div>
 							<div class="about-content">
-								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
-								<p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>
-								<a href="javascript:;">Read More..</a>
+								<p>Effortlessly schedule appointments with our qualified doctors at your convenience. Choose your preferred time and receive expert medical care without the hassle.</p>
+
+								<!-- <a href="javascript:;">Read More..</a> -->
 							</div>
 						</div>
 						<div class="col-lg-8">
@@ -129,11 +129,11 @@
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+												<a href="{{route('view.docprofile',$doctor->id)}}" class="btn view-btn">View Profile</a>
 											</div>
-											<div class="col-6">
+											<!-- <div class="col-6">
 												<a href="booking.html" class="btn book-btn">Book Now</a>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>

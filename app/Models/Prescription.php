@@ -10,15 +10,16 @@ class Prescription extends Model
     use HasFactory;
     protected $guarded = [];
 
+    //one prescription has one doctor and one patient so relation should be belongsto
 
     public function doctor()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function patient()
     {
-        return $this->hasMany(Patient::class);
+        return $this->belongsTo(Patient::class);
     }
 
     public function appointment()

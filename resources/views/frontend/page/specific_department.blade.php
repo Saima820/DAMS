@@ -25,18 +25,24 @@
 									<div class="pro-content">
 										<h3 class="title">
 											<a href="doctor-profile.html">{{$doctor->name}}</a>
+
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-										<div class="rating">
+										<p class="speciality">Specialist:{{$doctor->department->name}}</p>
+                                        <p class="speciality">Phone Number:{{$doctor->phonenumber}}</p>
+                                        <p class="speciality">Email:{{$doctor->email}}</p>
+                                        <p class="speciality">Status:{{$doctor->status}}</p>
+                                        <p class="speciality">Visiting Charge:{{$doctor->visiting_charge}}</p>
+
+										<!-- <div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
 											<span class="d-inline-block average-rating">(17)</span>
-										</div>
-										<ul class="available-info">
+										</div> -->
+										<!-- <ul class="available-info">
 											<li>
 												<i class="fas fa-map-marker-alt"></i> {{$doctor->phonenumber}}
 											</li>
@@ -49,14 +55,14 @@
 											</li>
 
 
-										</ul>
+										</ul> -->
 										<div class="row row-sm">
 											<div class="col-6">
 												<a href="{{route('view.docprofile',$doctor->id)}}" class="btn view-btn">View Profile</a>
 											</div>
-											<div class="col-6">
+											<!-- <div class="col-6">
 												<a href="booking.html" class="btn book-btn">Book Now</a>
-											</div>
+											</div> -->
 										</div>
 									</div>
 								</div>

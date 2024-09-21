@@ -44,7 +44,7 @@
     <td>
         <a class="btn btn-info" href="#">View</a>
         @if($appointment->is_prescribed==1)
-        <a class="btn btn-primary" href="{{route('prescription.list',$appointment->id)}}">view Prescription</a>
+        <a class="btn btn-primary" href="{{route('prescription.view',$appointment->id)}}">view Prescription</a>
         @else
         <a class="btn btn-primary" href="{{route('prescription.add',$appointment->id)}}">add Prescription</a>
         @endif
