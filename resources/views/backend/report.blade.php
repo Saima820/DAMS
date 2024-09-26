@@ -35,9 +35,9 @@
       <th scope="col">Appointment Date</th>
       <th scope="col">Time Slot</th>
       <th scope="col">Status</th>
-      <th scope="col">Payment</th>
-      <th scope="col">Amount</th>
-      <th scope="col">transaction</th>
+      <th scope="col">Payment Method</th>
+      <th scope="col">Visiting Charge</th>
+      <!-- <th scope="col">transaction</th> -->
 
 
     </tr>
@@ -50,11 +50,11 @@
       <td>{{$report->patient->patient_name}}</td>
       <td>{{$report->doctor->name}}</td>
       <td>{{$report->appointment_date}}</td>
-      <td>{{$report->time_slot_id}}</td>
+      <td>{{$report->slot->timeslot}}</td>
       <td>{{$report->status}}</td>
       <td>{{$report->payment_method}}</td>
-      <td>{{$report->amount}}</td>
-      <td>{{$report->trx_id}}</td>
+      <td>{{$report->visiting_charge}}</td>
+      <!-- <td>{{$report->trx_id}}</td> -->
 
 
     @endforeach

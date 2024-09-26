@@ -29,8 +29,9 @@ use Illuminate\Support\Facades\Route;
 
 
 //for website
-
+Route::group(['middleware'=>'changeLanguageMiddleware'],function(){
 Route::get('/',[FrontendHomeController::class,'home'])->name('home');
+Route::get('/change/lang/{lang_name}',[FrontendHomeController::class,'changeLang'])->name('change.lang');
 
 //all doctors
 Route::get('/all-doctors',[FrontendDoctorController::class,'allDoctor'])->name('frontend.alldoctors');
@@ -81,6 +82,7 @@ Route::post('/success', [FrontendPaymentController::class, 'success']);
 
 
 
+
 // SSLCOMMERZ Start
 Route::get('/example1', [PaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [PaymentController::class, 'exampleHostedCheckout']);
@@ -96,7 +98,7 @@ Route::post('/ipn', [PaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
 
-
+});
 
 
 //for admin
@@ -151,6 +153,8 @@ Route::post('/appointment-store',[AppointmentlistController::class,'store'])->na
 Route::get('/time-slot',[TimeslotController::class,'timeslot'])->name('time.slot');
 Route::get('/time-slot-form',[TimeslotController::class,'timeslotform'])->name('time-slot.form');
 Route::post('/time-slot-store',[TimeslotController::class,'timeslotstore'])->name('time-slot.store');
+//time-slot delete
+Route::get('/delete-timeslot/{id}',[TimeslotController::class,'deleteTimeslot'])->name('delete.timeslot');
 
 //Payment List
 Route::get('/payment',[PaymentController::class,'payment'])->name('payment.gateway');
@@ -163,6 +167,8 @@ Route::post('/payment-store',[PaymentController::class,'store'])->name('payment.
 Route::get('/department',[DepartmentController::class,'department'])->name('department.list');
 Route::get('/department-form',[DepartmentController::class,'form'])->name('department.form');
 Route::post('/department-store',[DepartmentController::class,'store'])->name('department.store');
+//department delete
+Route::get('/delete-depaertment/{id}',[DepartmentController::class,'deleteDepartment'])->name('delete.department');
 
 //Prescription List
 Route::get('/prescription',[PrescriptionController::class,'prescription'])->name('prescription.list');

@@ -31,8 +31,44 @@
 
 
                             <li>
-								<a href="{{route('frontend.alldoctors')}}">All Doctors</a>
+								<a href="{{route('frontend.alldoctors')}}">{{__('All Doctors')}}</a>
 							</li>
+
+
+
+
+
+
+
+
+         <li>
+              <select onchange="location = this.options[this.selectedIndex].value;" name="" id="" class="form-control">
+              <option  @if(session()->get('locale')=='en') selected @endif value="{{route('change.lang','en')}}">English
+              </option>
+                <option  @if(session()->get('locale')=='bn') selected @endif value="{{route('change.lang','bn')}}">Bangla
+                </option>
+
+
+              </select>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -28,13 +28,11 @@
 		<![endif]-->
         @notifyCss
 
-        <style type="text/css">
-        #laravel-notify{
-        z-index: 9999 !important;
-        }
-        </style>
+
+<style type="text/css"> .notify{ z-index: 1000000; margin-top: 5%; } </style>
 	</head>
 	<body>
+
 
 
 

@@ -20,8 +20,8 @@
 							<form action="{{route('search')}}">
 
 								<div class="form-group search-info">
-									<input name="search_key" value="{{request()->search_key}}" type="text" class="form-control" placeholder="Search Doctors and Departments Here">
-									<span class="form-text">Ex : Dentist, Dermatologists etc</span>
+									<input name="search_key" value="{{request()->search_key}}" type="text" class="form-control" placeholder="{{__('Search Doctors Here')}}">
+									<span class="form-text">Ex : Dentist etc</span>
 								</div>
 								<button type="submit" class="btn btn-primary search-btn active"><i class="fas fa-search"></i> <span>Search</span></button>
 							</form>

@@ -25,7 +25,7 @@
 
       <td>
 
-        <a class="btn btn-danger" href="#">Delete</a>
+        <a class="btn btn-danger" href="{{route('delete.timeslot',$timeslot->id)}}">Delete</a>
         <!-- <a class="btn btn-warning" href="#">Edit</a> -->
       </td>
     </tr>

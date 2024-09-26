@@ -33,4 +33,10 @@ class DepartmentController extends Controller
           return redirect()->route('department.list');
 
     }
+
+    public function deleteDepartment($id)
+    {
+        $deleteDepartment=Department::find($id)->delete();
+        return redirect()->back();
+    }
 }

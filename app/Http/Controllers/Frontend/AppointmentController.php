@@ -42,12 +42,19 @@ class AppointmentController extends Controller
 
 
             //check if patient can take appointment
-            $checkAppointment=Appointment::where('doctor_id',$dId)
-                            ->where('patient_id',auth('patientG')->user()->id)
+            $checkAppointmentForDoctor=Appointment::where('doctor_id',$dId)
+                            // ->where('patient_id',auth('patientG')->user()->id)
                             ->whereDate('appointment_date',date('y-m-d',strtotime($request->appointment_date)))
+                            ->where('time_slot_id',$request->time_slot_id)
                             ->first();
 
-            if(!$checkAppointment)
+
+                            $checkAppointmentForPatient=Appointment::where('patient_id',auth('patientG')->user()->id)
+                            ->whereDate('appointment_date',date('y-m-d',strtotime($request->appointment_date)))
+                            ->where('time_slot_id',$request->time_slot_id)
+                            ->first();
+
+            if(!$checkAppointmentForDoctor &&  !$checkAppointmentForPatient)
             {
 
                 $appointment=Appointment::create([
@@ -55,7 +62,8 @@ class AppointmentController extends Controller
                     'patient_id'=>auth('patientG')->user()->id,
                     'appointment_date'=>$request->appointment_date,
                     'time_slot_id'=>$request->time_slot_id,
-                    'visiting_charge'=>$request->visiting_charge
+                    'visiting_charge'=>$request->visiting_charge,
+                    'payment_method'=>$request->payment_type
                 ]);
                 DB::commit();
 
@@ -69,7 +77,7 @@ class AppointmentController extends Controller
                 }
 
             }else{
-                notify()->error('You have apppointment on this date.');
+                notify()->error('This doctor is not available or you have appointment');
                 return redirect()->back();
             }
 

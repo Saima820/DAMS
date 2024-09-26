@@ -107,7 +107,9 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
     </style>
+    <style type="text/css"> .notify{ z-index: 1000000; margin-top: 5%; } </style>
 
 
     <!-- Custom styles for this template -->
