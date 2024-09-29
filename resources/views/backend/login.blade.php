@@ -145,6 +145,26 @@ input[type=text] {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
+input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
 
 input[type=text]:focus {
   background-color: #fff;
@@ -152,6 +172,14 @@ input[type=text]:focus {
 }
 
 input[type=text]:placeholder {
+  color: #cccccc;
+}
+input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=password]:placeholder {
   color: #cccccc;
 }
 
@@ -279,24 +307,21 @@ input[type=text]:placeholder {
     <!-- Tabs Titles -->
 
     <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    <div class="fadeIn first" style="justify-content: center; display:flex;">
+      <img src="https://www.shutterstock.com/image-vector/3d-doctors-avatars-male-female-600nw-2383916005.jpg"  id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
     <form method="post" action="{{route('do.login')}}">
      @csrf
       <input type="text" id="login" class="fadeIn second" name="email" placeholder="login">
-      <input type="password" style="display: inline-block;" id="password" class="" name="password" placeholder="password">
+      <input type="password" style="display: inline-block;" id="password" class="fadeIn" name="password" placeholder="password">
       <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 
 
 
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
+
 
   </div>
 </div>

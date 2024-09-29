@@ -10,7 +10,7 @@
 				   <div class="row">
 
    <p>
-        {{$allDoctor->count()}} this found for "{{ request()->search_key}}"
+        {{$allDoctor->count()}} results found for "{{ request()->search_key}}"
    </p>
 
                         @foreach ($allDoctor as $doctor)
@@ -19,47 +19,29 @@
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
+											<img class="img-fluid" style="height: 300px;" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
 										</a>
-										<a href="javascript:void(0)" class="fav-btn">
+										<!-- <a href="javascript:void(0)" class="fav-btn">
 											<i class="far fa-bookmark"></i>
-										</a>
+										</a> -->
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
 											<a href="doctor-profile.html">{{$doctor->name}}</a>
-											<i class="fas fa-check-circle verified"></i>
+
 										</h3>
-										<p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
-										<div class="rating">
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<i class="fas fa-star filled"></i>
-											<span class="d-inline-block average-rating">(17)</span>
-										</div>
-										<ul class="available-info">
-											<li>
-												<i class="fas fa-map-marker-alt"></i> {{$doctor->phonenumber}}
-											</li>
-											<li>
-												<i class="far fa-clock"></i> {{$doctor->specialist}}
-											</li>
-											<li>
-												<i class="far fa-money-bill-alt"></i> {{$doctor->email}}
-												<i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
-											</li>
+										<p class="speciality">Specialist:{{$doctor->department->name}}</p>
+										<p class="speciality">Phone Number:{{$doctor->phonenumber}}</p>
+										<p class="speciality">Email:{{$doctor->email}}</p>
+										<p class="speciality">Status:{{$doctor->status}}</p>
+										<p class="speciality">Visiting Charge:{{$doctor->visiting_charge}}</p>
 
 
-										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="{{route('view.profile',$doctor->id)}}" class="btn view-btn">View Profile</a>
+												<a href="{{route('view.docprofile',$doctor->id)}}" class="btn view-btn">View Profile</a>
 											</div>
-											<div class="col-6">
-												<a href="booking.html" class="btn book-btn">Book Now</a>
-											</div>
+
 										</div>
 									</div>
 								</div>

@@ -58,7 +58,7 @@ Route::group(['middleware'=>'patientAuth'],function(){
 Route::get('/logout',[FrontendPatientController::class,'logout'])->name('patient.logout');
 
 //single patient profile view
-Route::get('/view-profile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
+Route::get('/view-Patientprofile',[FrontendPatientController::class,'viewProfile'])->name('view.profile');
 //view prescription
 Route::get('/view-myprescription/{id}',[FrontendPatientController::class,'viewmyPrescription'])->name('view.myPrescription');
 //cancle appointment from patient profile

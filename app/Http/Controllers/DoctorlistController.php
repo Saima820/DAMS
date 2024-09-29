@@ -29,7 +29,7 @@ class DoctorlistController extends Controller
 
        $validation=Validator::make($request->all(),[
           'user_name'=>'required', //form er input name
-          'email_address'=>'required|unique:users,email',
+          'email_address'=>'required|email|unique:users,email',
           'phone_number'=>'required|regex:/(01)[0-9]{9}/|min:11|max:11',
           'password'=>'required',
           'department_id'=>'required',
@@ -41,7 +41,7 @@ class DoctorlistController extends Controller
        if($validation->fails())
        {
         notify()->error($validation->getMessageBag());
-        return redirect()->back();
+        return redirect()->back()->withInput();
        }
   //dd($request->all());
        $filename=null;

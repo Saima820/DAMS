@@ -17,14 +17,15 @@
 <button type="submit" class="btn btn-success">Search</button>
 
 </form>
-
+<div id="PrintArea">
     <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-        <h1> Appointment List Report</h1>
-        <h4>Date: {{request()->from_date}} to {{request()->to_date}}</h4>
-</div>
-<div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1> Appointment List Report</h1>
+            <h4>Date: {{request()->from_date}} to {{request()->to_date}}</h4>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
 <table class="table">
   <thead>
@@ -61,6 +62,24 @@
 
   </tbody>
 </table>
+</div>
+<button type="submit" class="btn btn-primary active" onClick="printReport()">Print</button>
+
+<script type="text/javascript">
+
+    function printReport()
+    {
+        var printContents = document.getElementById("PrintArea").innerHTML;
+
+			var originalContents = document.body.innerHTML;
+
+			document.body.innerHTML = printContents;
+
+			window.print();
+
+			document.body.innerHTML = originalContents;
+    }
+</script>
 
 
 

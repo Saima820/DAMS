@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id');
-            $table->integer('patient_id');
+            $table->foreignId('doctor_id')->constrained('users')->restrictOnDelete();
+            $table->foreignId('patient_id')->constrained('patients')->restrictOnDelete();
             $table->date('appointment_date');
-            $table->integer('time_slot_id');
+            $table->foreignId('time_slot_id')->constrained('timeslots')->restrictOnDelete();
             $table->string('status')->default('pending');
             $table->string('payment_status')->default('pending');
             $table->string('payment_method')->default('pending');

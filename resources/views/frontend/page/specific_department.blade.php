@@ -18,15 +18,15 @@
 										<a href="doctor-profile.html">
 											<img class="img-fluid" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
 										</a>
-										<a href="javascript:void(0)" class="fav-btn">
+										<!-- <a href="javascript:void(0)" class="fav-btn">
 											<i class="far fa-bookmark"></i>
-										</a>
+										</a> -->
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
 											<a href="doctor-profile.html">{{$doctor->name}}</a>
 
-											<i class="fas fa-check-circle verified"></i>
+
 										</h3>
 										<p class="speciality">Specialist:{{$doctor->department->name}}</p>
                                         <p class="speciality">Phone Number:{{$doctor->phonenumber}}</p>

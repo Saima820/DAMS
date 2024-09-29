@@ -47,11 +47,11 @@
 						<div class="col-md-12 col-12">
 							<nav aria-label="breadcrumb" class="page-breadcrumb">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+									<!-- <li class="breadcrumb-item"><a href="index-2.html">Home</a></li> -->
+									<li class="breadcrumb-item active" aria-current="page">My Profile</li>
 								</ol>
 							</nav>
-							<h2 class="breadcrumb-title">Dashboard</h2>
+							<h2 class="breadcrumb-title">Information</h2>
 						</div>
 					</div>
 				</div>
@@ -250,7 +250,7 @@
 																				<i class="fas fa-print"></i> Print
 																			</a> -->
 																			<a href="{{route('view.myPrescription',$prescription->id)}}" class="btn btn-sm bg-info-light">
-																				<i class="far fa-eye"></i> View
+																				<i class="far fa-eye">View</i>
 																			</a>
 																		</div>
 																	</td>

@@ -15,7 +15,7 @@
       <th scope="col">Appointment Date</th>
       <th scope="col">Time Slot</th>
       <th scope="col">Status</th>
-      <th scope="col">Payment</th>
+      <th scope="col">Payment Method</th>
       <th scope="col">Payment Status</th>
       <th scope="col">Visiting Charge</th>
       <th scope="col">transaction</th>

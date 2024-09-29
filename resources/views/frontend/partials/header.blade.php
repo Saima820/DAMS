@@ -35,13 +35,7 @@
 							</li>
 
 
-
-
-
-
-
-
-         <li>
+         <li style="margin-top: 18px;">
               <select onchange="location = this.options[this.selectedIndex].value;" name="" id="" class="form-control">
               <option  @if(session()->get('locale')=='en') selected @endif value="{{route('change.lang','en')}}">English
               </option>
@@ -51,6 +45,14 @@
 
               </select>
             </li>
+
+
+
+
+
+
+
+
 
 
 

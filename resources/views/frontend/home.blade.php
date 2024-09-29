@@ -12,7 +12,7 @@
 					<div class="banner-wrapper">
 						<div class="banner-header text-center">
 							<h1>Search Doctor, Make an Appointment</h1>
-							<p>Discover the best doctors, clinic & hospital the city nearest to you.</p>
+							<p>Discover the best doctors the city nearest to you.</p>
 						</div>
 
 						<!-- Search -->
@@ -21,7 +21,7 @@
 
 								<div class="form-group search-info">
 									<input name="search_key" value="{{request()->search_key}}" type="text" class="form-control" placeholder="{{__('Search Doctors Here')}}">
-									<span class="form-text">Ex : Dentist etc</span>
+									<span class="form-text">Ex : Dr xyz etc</span>
 								</div>
 								<button type="submit" class="btn btn-primary search-btn active"><i class="fas fa-search"></i> <span>Search</span></button>
 							</form>
@@ -38,7 +38,7 @@
 				<div class="container-fluid">
 					<div class="section-header text-center">
 						<h2>Departments</h2>
-						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="sub-title">Here is all Departments.</p>
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-md-9">
@@ -105,16 +105,16 @@
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
-											<img class="img-fluid" alt="User Image" src="{{url('/uploads/doctors/'.$doctor->image)}}">
+											<img class="img-fluid" alt="User Image" style="height: 300px;" src="{{url('/uploads/doctors/'.$doctor->image)}}">
 										</a>
-										<a href="javascript:void(0)" class="fav-btn">
+										<!-- <a href="javascript:void(0)" class="fav-btn">
 											<i class="far fa-bookmark"></i>
-										</a>
+										</a> -->
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
 											<a href="doctor-profile.html">{{$doctor->name}}</a>
-											<i class="fas fa-check-circle verified"></i>
+											<!-- <i class="fas fa-check-circle verified"></i> -->
 										</h3>
 										<p class="speciality">Specialist:{{$doctor->department->name}}</p>
                                         <p class="speciality">Phone Number:{{$doctor->phonenumber}}</p>

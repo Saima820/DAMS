@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DepartmentController extends Controller
 {
@@ -21,7 +22,16 @@ class DepartmentController extends Controller
 
     public function store(Request $request)
     {
+        $validation=Validator::make($request->all(),[
+            'department_name'=>'required|unique:departments,name'
+        ]);
 
+        if($validation->fails())
+        {
+            // dd($validation->getMessageBag());
+            notify()->error($validation->getMessageBag());
+            return redirect()->back();
+        }
      // dd($request->all());
 
 
