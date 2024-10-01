@@ -5,6 +5,7 @@ use App\Models\Department;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Throwable;
 
 class DepartmentController extends Controller
 {
@@ -46,7 +47,13 @@ class DepartmentController extends Controller
 
     public function deleteDepartment($id)
     {
-        $deleteDepartment=Department::find($id)->delete();
-        return redirect()->back();
+        try{
+            $deleteDepartment=Department::find($id)->delete();
+            return redirect()->back();
+        }catch(Throwable $e){
+            notify()->error('You cannot delete it.');
+            return redirect()->back();
+        }
+
     }
 }

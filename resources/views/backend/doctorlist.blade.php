@@ -34,7 +34,7 @@
       <td>{{$doctor->phonenumber}}</td>
       <td>{{$doctor->department->name}}</td>
       <td>{{$doctor->status}}</td>
-      <td>{{$doctor->visiting_charge}}</td>
+      <td>{{$doctor->visiting_charge}} BDT</td>
 
       <td>
         <a class="btn btn-info" href="{{route('doctor.view',$doctor->id)}}">View</a>

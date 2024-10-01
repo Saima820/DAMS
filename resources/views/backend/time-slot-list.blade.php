@@ -16,9 +16,9 @@
   </thead>
   <tbody>
 
-    @foreach($alltimeslot as $timeslot)
+    @foreach($alltimeslot as $key=>$timeslot)
     <tr>
-      <th scope="row">{{$timeslot->id}}</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$timeslot->timeslot}}</td>
 
 

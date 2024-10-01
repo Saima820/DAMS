@@ -18,7 +18,7 @@
       <th scope="col">Payment Method</th>
       <th scope="col">Payment Status</th>
       <th scope="col">Visiting Charge</th>
-      <th scope="col">transaction</th>
+      <th scope="col">Action</th>
 
 
 
@@ -37,22 +37,22 @@
       <td>{{$appointment->status}}</td>
       <td>{{$appointment->payment_method}}</td>
       <td>{{$appointment->payment_status}}</td>
-      <td>{{$appointment->doctor->visiting_charge}}</td>
-      <td>{{$appointment->trx_id}}</td>
+      <td>{{$appointment->doctor->visiting_charge}} BDT</td>
 
 
-    <td>
-        <a class="btn btn-info" href="#">View</a>
+
+    <td style="display: flex;">
+
         @if($appointment->is_prescribed==1)
         <a class="btn btn-primary" href="{{route('prescription.view',$appointment->id)}}">view Prescription</a>
-        @else
+        @elseif($appointment->status == 'accept')
         <a class="btn btn-primary" href="{{route('prescription.add',$appointment->id)}}">add Prescription</a>
         @endif
 
 
         @if($appointment->status=='pending')
-        <a class="btn btn-success" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>
-        <a class="btn btn-danger" href="#">Reject</a>
+        <a class="btn btn-success m-1" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>
+        <a class="btn btn-danger m-1" href="#">Reject</a>
         @endif
 
 

@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h2> Book Your Doctor Appointments </h2>
+<h1 style="text-align: center;"> Book Your Doctor Appointments </h1>
 
 <section class="section section-doctor">
 				<div class="container-fluid">

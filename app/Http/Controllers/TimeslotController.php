@@ -9,7 +9,7 @@ class TimeslotController extends Controller
 {
     public function timeslot()
     {
-        $alltimeslot=Timeslot::paginate(8);
+        $alltimeslot=Timeslot::orderBy('id','DESC')->paginate(15);
         return view ('backend.time-slot-list',compact('alltimeslot'));
     }
 

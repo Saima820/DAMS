@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('role')->default('admin');
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('department_id')->nullable();
+            $table->foreignId('department_id')->nullable()->constrained('departments')->restrictOnDelete();
             $table->string('phonenumber')->nullable();
             $table->string('status')->nullable();
             $table->string('image')->nullable();

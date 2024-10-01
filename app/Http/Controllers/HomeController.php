@@ -16,7 +16,7 @@ class HomeController extends Controller
         $allPatientCount=Patient::count();
         $allDepartmentCount=Department::count();
         $allAppointmentCount=Appointment::count();
-        $allDoctorCount=User::count();
+        $allDoctorCount=User::where('role','doctor')->count();
         return view ('backend.home',compact('allPatientCount','allDepartmentCount','allAppointmentCount','allDoctorCount'));
     }
 }

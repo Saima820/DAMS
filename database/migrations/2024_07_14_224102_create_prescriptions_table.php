@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id');
-            $table->integer('patient_id');
-            $table->integer('appointment_id');
+            $table->foreignId('doctor_id')->constrained('users')->restrictOnDelete();
+            $table->foreignId('patient_id')->constrained('patients')->restrictOnDelete();
+            $table->foreignId('appointment_id')->constrained('appointments')->restrictOnDelete();
             $table->text('observation');
             $table->text('assessment')->nullable();
             $table->text('medical_test')->nullable();

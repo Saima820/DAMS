@@ -33,7 +33,7 @@ class PatientController extends Controller
         {
             // dd($validation->getMessageBag());
             notify()->error($validation->getMessageBag()); //getMessageBag(shob message theke akta msg ana)
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
         //new add
         $fileName=null;

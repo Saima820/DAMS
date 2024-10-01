@@ -61,14 +61,14 @@
 
         <div class="details">
             <h2>Dear {{$patientAppointment->patient->patient_name}},</h2>
-            <p>We are pleased to confirm your appointment with {{$patientAppointment->doctor->doctor_id}} on [Appointment Date] at [Appointment Time].</p>
-            <p>Location: [Clinic Address]</p>
-            <p>If you need to reschedule or cancel your appointment, please contact us at [Clinic Phone Number] or reply to this email.</p>
+            <p>We are pleased to confirm your appointment with {{$patientAppointment->doctor->doctor_id}} on {{$patientAppointment->appointment_date}} at {{$patientAppointment->slot->timeslot}}.</p>
+            <p>Location: [22 Rabindra Sarani, Dhaka 1230]</p>
+            <p>If you need to reschedule or cancel your appointment, please contact us at [ 01634382166] or reply to this email.</p>
         </div>
 
         <div class="footer">
-            <p>Thank you for choosing [Clinic Name]. We look forward to seeing you!</p>
-            <p>&copy; [Year] [Clinic Name]. All rights reserved.</p>
+            <p>Thank you for choosing [DAMS]. We look forward to seeing you!</p>
+            <p>&copy; [DAMS]. All rights reserved.</p>
         </div>
     </div>
 </body>

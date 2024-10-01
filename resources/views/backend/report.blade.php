@@ -54,7 +54,7 @@
       <td>{{$report->slot->timeslot}}</td>
       <td>{{$report->status}}</td>
       <td>{{$report->payment_method}}</td>
-      <td>{{$report->visiting_charge}}</td>
+      <td>{{$report->visiting_charge}} BDT</td>
       <!-- <td>{{$report->trx_id}}</td> -->
 
 

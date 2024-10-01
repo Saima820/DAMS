@@ -183,13 +183,13 @@
 																	</td>
 																	<td>{{$appointment->appointment_date}} <span class="d-block text-info"></span></td>
                                                                     <td>{{$appointment->slot->timeslot}}</td>
-																	<td>{{$appointment->visiting_charge}}</td>
+																	<td>{{$appointment->visiting_charge}} BDT</td>
                                                                     <td>{{$appointment->payment_method}}</td>
 
 																	<td> {{$appointment->status}}<span class="badge badge-pill bg-success-light"></span></td>
 																	<td class="text-right">
 																		<div class="table-action">
-                                                                            @if($appointment->status=='accept')
+                                                                            @if($appointment->status=='pending')
 																			<a href="{{route('frontend.appointment.cancel',$appointment->id)}}" class="btn btn-sm bg-primary-light">
 																				<i class="fas fa-print"></i> Cancel
 																			</a>
