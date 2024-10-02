@@ -55,13 +55,13 @@
     <div class="container">
         <div class="header">
             <img src="{{url('/logo.png')}}" alt="Clinic Logo">
-            <h1>Appointment Confirmation</h1>
+            <h1>Appointment Reject</h1>
         </div>
 
 
         <div class="details">
             <h2>Dear {{$patientAppointment->patient->patient_name}},</h2>
-            <p>We are pleased to confirm your appointment with {{$patientAppointment->doctor->name}} on {{$patientAppointment->appointment_date}} at {{$patientAppointment->slot->timeslot}}.</p>
+            <p>We are sorry to inform you that your appointment is Rejected of {{$patientAppointment->doctor->name}} on {{$patientAppointment->appointment_date}} at {{$patientAppointment->slot->timeslot}}.</p>
             <p>Location: [22 Rabindra Sarani, Dhaka 1230]</p>
             <p>If you need to reschedule or cancel your appointment, please contact us at [ 01634382166] or reply to this email.</p>
         </div>

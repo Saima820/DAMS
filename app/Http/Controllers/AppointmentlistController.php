@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\AppointmentEmail;
+use App\Mail\RejectMail;
 use App\Models\Appointment;
 use App\Models\Prescription;
 use Illuminate\Http\Request;
@@ -53,7 +54,7 @@ class AppointmentlistController extends Controller
 
     public function accept($aId)
     {
-       $appointment=Appointment::with('patient')->find($aId);
+       $appointment=Appointment::find($aId);
 
         //dd($appointment);
 
@@ -118,6 +119,25 @@ class AppointmentlistController extends Controller
 
         $apReport=Appointment::with('slot')->get();
         return view ('backend.report',compact('apReport'));
+    }
+
+
+    public function reject($id)
+    {
+        $appointment=Appointment::find($id);
+        $appointment->update([
+
+            'status'=>'reject'
+
+        ]);
+
+        notify()->success('Your appointment Rejected.');
+
+        //send appointment confirmation mail
+        Mail::to($appointment->patient->email)->send(new RejectMail($appointment));
+
+        return redirect()->back();
+
     }
 
 

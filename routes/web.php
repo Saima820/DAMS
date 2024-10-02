@@ -139,8 +139,11 @@ Route::post('/update-doctor/{id}',[DoctorlistController::class,'updateDoctor'])-
 
 //Appointment List
 Route::get('/appointmentlist',[AppointmentlistController::class,'appointmentlist'])->name('appointment.list');
+
 //accept appointment from appointment list
 Route::get('/appointment-accept/{id}',[AppointmentlistController::class,'accept'])->name('appointment.accept');
+//reject appointment from appointment list
+Route::get('/appointment-reject/{id}',[AppointmentlistController::class,'reject'])->name('appointment.reject');
 //add prescription button in appointmentlist
 Route::get('/add-prescription/{prescriptionid}',[AppointmentlistController::class,'addPrescription'])->name('prescription.add');
 //view prescription button in appointmentlist

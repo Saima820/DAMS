@@ -34,7 +34,7 @@
       <td>{{$appointment->doctor->name}}</td>
       <td>{{$appointment->appointment_date}}</td>
       <td>{{$appointment->slot->timeslot}}</td>
-      <td>{{$appointment->status}}</td>
+      <td @if($appointment->status=='reject') style="background:red" @else  style="background:green" @endif>{{$appointment->status}}</td>
       <td>{{$appointment->payment_method}}</td>
       <td>{{$appointment->payment_status}}</td>
       <td>{{$appointment->doctor->visiting_charge}} BDT</td>
@@ -52,7 +52,7 @@
 
         @if($appointment->status=='pending')
         <a class="btn btn-success m-1" href="{{route('appointment.accept',$appointment->id)}}">Accept</a>
-        <a class="btn btn-danger m-1" href="#">Reject</a>
+        <a class="btn btn-danger m-1" href="{{route('appointment.reject',$appointment->id)}}">Reject</a>
         @endif
 
 
